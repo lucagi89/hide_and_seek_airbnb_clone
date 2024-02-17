@@ -8,5 +8,7 @@ class Flat < ApplicationRecord
   belongs_to :user, through: :bookings
   belongs_to :booking
   has_many :bookings
+  has_many :users, through: :bookings
+  has_many :reviews, through: :bookings
   has_many_attached :photos
 end
