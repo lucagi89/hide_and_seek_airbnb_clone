@@ -1,2 +1,24 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
+
+
+
+<% @flats.each do |flat|%>
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title"><%= flat.name %></h5>
+        <p class="card-text"><%= flat.description %></p>
+        <%= link_to "Visit Flat", flat_path(flat) %>
+        </div>
+    </div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
