@@ -10,21 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-ActiveRecord::Schema[7.1].define(version: 2024_02_17_143040) do
-=======
 ActiveRecord::Schema[7.1].define(version: 2024_02_17_202804) do
->>>>>>> 9f9dbde9f5ef5bb0db6610a020cdfdcb5ad33785
-=======
-ActiveRecord::Schema[7.1].define(version: 2024_02_17_202804) do
-=======
-ActiveRecord::Schema[7.1].define(version: 2024_02_17_143040) do
-=======
-ActiveRecord::Schema[7.1].define(version: 2024_02_17_202804) do
->>>>>>> 73dae29fd57ac6079dc4d9129b9a7e84fe681c3c
->>>>>>> 93dd65c569cc8b8a543f856c07d73e8a65b1fbfc
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -102,8 +88,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_17_202804) do
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
-<<<<<<< HEAD
-=======
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
@@ -111,8 +95,4 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_17_202804) do
   add_foreign_key "bookings", "users"
   add_foreign_key "flats", "users"
   add_foreign_key "reviews", "bookings"
-<<<<<<< HEAD
->>>>>>> 9f9dbde9f5ef5bb0db6610a020cdfdcb5ad33785
-=======
->>>>>>> 93dd65c569cc8b8a543f856c07d73e8a65b1fbfc
 end
