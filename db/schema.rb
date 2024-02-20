@@ -11,10 +11,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema[7.1].define(version: 2024_02_17_143040) do
 =======
 ActiveRecord::Schema[7.1].define(version: 2024_02_17_202804) do
 >>>>>>> 9f9dbde9f5ef5bb0db6610a020cdfdcb5ad33785
+=======
+ActiveRecord::Schema[7.1].define(version: 2024_02_17_202804) do
+>>>>>>> 93dd65c569cc8b8a543f856c07d73e8a65b1fbfc
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -101,5 +105,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_17_202804) do
   add_foreign_key "bookings", "users"
   add_foreign_key "flats", "users"
   add_foreign_key "reviews", "bookings"
+<<<<<<< HEAD
 >>>>>>> 9f9dbde9f5ef5bb0db6610a020cdfdcb5ad33785
+=======
+>>>>>>> 93dd65c569cc8b8a543f856c07d73e8a65b1fbfc
 end
