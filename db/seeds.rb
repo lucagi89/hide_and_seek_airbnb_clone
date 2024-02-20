@@ -18,26 +18,22 @@ puts "Creating users..."
 user1 = User.create!(
     email: "qewqwe@asdasda.com",
     password: "123456",
-    name: "John Doe",
-    photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    name: "John Doe"
     )
 user2 = User.create!(
     email: "qswqwq@deded.com",
     password: "123456",
-    name: "Jane Doe",
-    photo: "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cGVyc29ufGVufDB8fDB8fHww"
+    name: "Jane Doe"
     )
 user3 =User.create!(
     email: "popo@owowow.com",
     password: "123456",
-    name: "John Smith",
-    photo: "https://images.unsplash.com/photo-1491349174775-aaafddd81942?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D"
+    name: "John Smith"
     )
 user4 = User.create!(
     email: "qpqpp@oqoqo.com",
     password: "123456",
-    name: "Jane Smith",
-    photo: "https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D"
+    name: "Jane Smith"
     )
 
 puts "Finished creating users!"
@@ -50,8 +46,7 @@ flat1 = Flat.create!(
     description: 'A lovely summer feel for this spacious garden flat. Two double bedrooms, open plan living area, large kitchen and a beautiful conservatory.',
     price_per_night: 75,
     number_of_guests: 3,
-    user_id: user1.id,
-    photo: "https://plus.unsplash.com/premium_photo-1684175656320-5c3f701c082c?q=80&w=2970&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    user_id: user1.id
   )
 flat2 = Flat.create!(
     name: 'Stylish House Close to River Thames',
@@ -59,8 +54,7 @@ flat2 = Flat.create!(
     description: 'Stylish and comfortable house for families and friends to enjoy. Close to the River Thames and the famous Baker Street.',
     price_per_night: 150,
     number_of_guests: 5,
-    user_id: user2.id,
-    photo: ""
+    user_id: user2.id
   )
 flat3 = Flat.create!(
     name: 'Stunning 2 Bed Flat in Notting Hill',
@@ -68,8 +62,7 @@ flat3 = Flat.create!(
     description: 'A beautiful, spacious and stylish 2 bed flat in the heart of Notting Hill.',
     price_per_night: 100,
     number_of_guests: 4,
-    user_id: user3.id,
-    photo: "https://unsplash.com/photos/a-bedroom-with-a-view-of-the-city-LBP2iFqIwcc"
+    user_id: user3.id
   )
 flat4 = Flat.create!(
     name: 'Modern 1 Bed Flat in Shoreditch',
@@ -77,8 +70,7 @@ flat4 = Flat.create!(
     description: 'A modern, stylish and comfortable 1 bed flat in the heart of Shoreditch.',
     price_per_night: 90,
     number_of_guests: 2,
-    user_id: user4.id,
-    photo: "https://plus.unsplash.com/premium_photo-1684175656320-5c3f701c082c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8ZmxhdHxlbnwwfHwwfHx8MA%3D%3D"
+    user_id: user4.id
   )
 puts 'Finished creating flats!'
 
