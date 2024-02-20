@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div class="container">
   <div class="row">
     <div class="col text-center m-2">
@@ -12,23 +11,22 @@
 <div class="container">
   <div class="row">
     <div class="col-md-3 mb-3">
-      <div class="card">
-        <img src="https://via.placeholder.com/300" class="card-img-top" alt="Property Image">
-        <div class="card-body">
-          <h5 class="card-title">Name of the property</h5>
-          <p class="card-text">This is the property description</p>
+      <% @flats.each do |flat|  %>
+        <div class="card">
+          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-608629036284538849/original/68b2f914-7365-4482-9eb5-23089f8f3800.jpeg?im_w=720" class="card-img-top" alt="Property Image">
+          <div class="d-flex justify-content-between mt-2 mx-2">
+            <p class=""><%= flat.name %></p>
+            <p>★ 4.5</p>
+          </div>
+          <div class="mx-2">
+            <h6><%= flat.location %> </h6>
+            <p><strong>￡<%= flat.price_per_night.round() %></strong><em>/night</em></p>
+          </div>
+
+            <a href="#" class="btn btn-primary my-2 mx-2">View Details</a>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">Location🌍: </li>
-          <li class="list-group-item">Price💲: </li>
-          <li class="list-group-item">Bedrooms🛏️: </li>
-          <li class="list-group-item">Bathrooms🛁: </li>
-          <li class="list-group-item">Ratings⭐:  </li>
-        </ul>
-        <div class="card-body">
-          <a href="#" class="link-offset-2 link-underline link-underline-opacity-0">View Details</a>
-        </div>
-      </div>
+    </div>
+      <% end %>
     </div>
   </div>
 </div>
@@ -57,7 +55,3 @@
     </div>
   </div>
 </footer>
-=======
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
->>>>>>> 93dd65c569cc8b8a543f856c07d73e8a65b1fbfc
