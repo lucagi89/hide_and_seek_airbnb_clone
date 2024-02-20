@@ -5,10 +5,9 @@ class Flat < ApplicationRecord
   validates :description, presence: true
   validates :number_of_guests, presence: true
 
-  belongs_to :booking
   has_many :bookings
   has_many :users, through: :bookings
   has_many :reviews, through: :bookings
 
-  has_many_attached :photos
+  # has_many_attached :photos
 end
