@@ -1,57 +1,31 @@
-<div class="container">
-  <div class="row">
-    <div class="col text-center m-2">
-      <h1>Welcome to Hide N Seek!</h1>
-      <p>Disappear to Seek the Joy of Discovery</p>
-      <a class="btn btn-primary btn-lg" href="#" role="button">Find a random adventure🌴</a>
-    </div>
-  </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-md-3 mb-3">
-      <% @flats.each do |flat|  %>
-        <div class="card">
-          <img src="https://a0.muscache.com/im/pictures/miso/Hosting-608629036284538849/original/68b2f914-7365-4482-9eb5-23089f8f3800.jpeg?im_w=720" class="card-img-top" alt="Property Image">
-          <div class="d-flex justify-content-between mt-2 mx-2">
-            <p class=""><%= flat.name %></p>
-            <p>★ 4.5</p>
-          </div>
-          <div class="mx-2">
-            <h6><%= flat.location %> </h6>
-            <p><strong>￡<%= flat.price_per_night.round() %></strong><em>/night</em></p>
-          </div>
-
-            <a href="#" class="btn btn-primary my-2 mx-2">View Details</a>
-        </div>
-    </div>
-      <% end %>
-    </div>
-  </div>
-</div>
-
-<footer class="footer bg-dark text-light">
-  <div class="container">
+<div class="border-bottom" style="background-color: white;">
+  <div class="container mb-5">
     <div class="row">
-      <div class="col-md-6 m-2">
+      <div class="d-flex flex-column m-2 align-items-center">
+        <h1>Welcome Vincent <i class="fa-solid fa-gem"></i></h1>
+        <p>Discover Hidden Gems with Hide N Seek!"</p>
+        <div class="search-bar d-flex mt-3">
+          <div class="d-flex flex-column border-end mx-3">
+            <label for="">Where</label>
+            <input type="text" placeholder="Search destinations">
+          </div>
+          <div class="d-flex flex-column border-end mx-3">
+            <label for="">Check in</label>
+            <input type="text" placeholder="Add dates">
+          </div>
+          <div class="d-flex flex-column border-end mx-3">
+            <label for="">Check out</label>
+            <input type="text" placeholder="Add dates">
+          </div>
+          <div class="d-flex flex-column mx-3">
+            <label for="">Who</label>
+            <input type="text" placeholder="Add guests">
+          </div>
+          <button class="btn btn-danger rounded-circle p-3 "><i class="fa-solid fa-magnifying-glass"></i></button>
+        </div>
       </div>
-      <div class="col-md-6">
-        <h5>Contact Us</h5>
-        <address>
-          <strong>Address:</strong><br>
-          Le Wagon,<br>
-          Shoreditch Stables North<br>
-          138 Kingsland Rd<br>
-          London, E2 8DY
-        </address>
-        <p><strong>Email📧:</strong> HideNSeek@gmail.com</p>
-        <p><strong>Phone📞:</strong> +123-456-7890</p>
-      </div>
-    </div>
-    <hr>
-    <div class="text-center">
-      <p>&copy; 2024 Hide N Seek. All rights reserved.</p>
     </div>
   </div>
-</footer>
+</div>
+
+<%= render "shared/cards" %>
