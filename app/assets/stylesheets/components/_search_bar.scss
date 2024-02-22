@@ -14,6 +14,9 @@ input:focus {
   border-radius: 32px;
   padding: 10px;
   box-shadow: 0 0 5px 5px rgba(0,0,0,0.1);
+  width: min-content;
+  position: relative;
+  top: -80px;
 }
 
 .search-input {
