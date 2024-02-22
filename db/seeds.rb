@@ -8,182 +8,51 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+require 'faker'
+
 # create flats in the database
 Booking.destroy_all
 Flat.destroy_all
 User.destroy_all
 
-
-
 puts "Creating users..."
 
-user1 = User.create!(
-    email: "qewqwe@asdasda.com",
-    password: "123456",
-    name: "John Doe"
+20.times do
+    User.create!(
+      name: Faker::Name.name,
+      email: Faker::Internet.email,
+      password: Faker::Internet.password(min_length: 8)
     )
-user2 = User.create!(
-    email: "qswqwq@deded.com",
-    password: "123456",
-    name: "Jane Doe"
-    )
-user3 = User.create!(
-    email: "popo@owowow.com",
-    password: "123456",
-    name: "John Smith"
-    )
-user4 = User.create!(
-    email: "qpqpp@oqoqo.com",
-    password: "123456",
-    name: "Jane Smith"
-    )
-user5 = User.create!(
-    email: "kjnkjnkn@oppo.bom",
-    password: "a3040404",
-    name: "John Johnson"
-)
-user6 = User.create!(
-    email: "oiomm@pompom.com",
-    password: "a3040404",
-    name: "Jane Johnson"
-)
-
-user7 = User.create!(
-    email: "ieoidmom@msmso.com",
-    password: "a3040404",
-    name: "John Doemin"
-)
-user8 = User.create!(
-    email: "fmokfm@mdmdm.com",
-    password: "a3040404",
-    name: "Jane Doemin"
-)
+end
 
 puts "Finished creating users!"
 
 puts "Creating flats..."
 
-flat1 = Flat.create!(
-    name: 'Light & Spacious Garden Flat London',
-    location: '10 Clifton Gardens London W9 1DT',
-    description: 'A lovely summer feel for this spacious garden flat. Two double bedrooms, open plan living area, large kitchen and a beautiful conservatory.',
-    price_per_night: 75,
-    number_of_guests: 3,
-    user_id: user1.id
+40.times do
+  Flat.create!(
+    name: Faker::Address.community,
+    city: Faker::Address.city,
+    address: Faker::Address.street_address,
+    description: Faker::Lorem.paragraph,
+    price_per_night: rand(50..200),
+    number_of_guests: rand(1..10),
+    photo_url: Faker::LoremFlickr.image(size: "300x300", search_terms: ['apartment']),
+    user_id: User.all.sample.id
   )
-flat2 = Flat.create!(
-    name: 'Stylish House Close to River Thames',
-    location: '4 Baker Street London W1U 6LW',
-    description: 'Stylish and comfortable house for families and friends to enjoy. Close to the River Thames and the famous Baker Street.',
-    price_per_night: 150,
-    number_of_guests: 5,
-    user_id: user2.id
-  )
-flat3 = Flat.create!(
-    name: 'Stunning 2 Bed Flat in Notting Hill',
-    location: '10 Pembridge Gardens London W2 4DU',
-    description: 'A beautiful, spacious and stylish 2 bed flat in the heart of Notting Hill.',
-    price_per_night: 100,
-    number_of_guests: 4,
-    user_id: user3.id
-  )
-flat4 = Flat.create!(
-    name: 'Modern 1 Bed Flat in Shoreditch',
-    location: '10 Redchurch Street London E2 7DD',
-    description: 'A modern, stylish and comfortable 1 bed flat in the heart of Shoreditch.',
-    price_per_night: 90,
-    number_of_guests: 2,
-    user_id: user4.id
-  )
-
-flat5 = Flat.create!(
-  name: 'Light & Spacious Garden Flat London',
-  location: '10 Clifton Gardens London W9 1DT',
-  description: 'A lovely summer feel for this spacious garden flat. Two double bedrooms, open plan living area, large kitchen and a beautiful conservatory.',
-  price_per_night: 75,
-  number_of_guests: 3,
-  user_id: user5.id
-)
-flat6 = Flat.create!(
-  name: 'Stylish House Close to River Thames',
-  location: '4 Baker Street London W1U 6LW',
-  description: 'Stylish and comfortable house for families and friends to enjoy. Close to the River Thames and the famous Baker Street.',
-  price_per_night: 150,
-  number_of_guests: 5,
-  user_id: user6.id
-)
-flat7 = Flat.create!(
-  name: 'Stunning 2 Bed Flat in Notting Hill',
-  location: '10 Pembridge Gardens London W2 4DU',
-  description: 'A beautiful, spacious and stylish 2 bed flat in the heart of Notting Hill.',
-  price_per_night: 100,
-  number_of_guests: 4,
-  user_id: user7.id
-)
-flat8 = Flat.create!(
-  name: 'Modern 1 Bed Flat in Shoreditch',
-  location: '10 Redchurch Street London E2 7DD',
-  description: 'A modern, stylish and comfortable 1 bed flat in the heart of Shoreditch.',
-  price_per_night: 90,
-  number_of_guests: 2,
-  user_id: user8.id
-)
+end
 
 puts 'Finished creating flats!'
 
-
 puts "Creating bookings..."
 
-Booking.create!(
-    start_date: "2021-10-01",
-    end_date: "2021-10-10",
-    user_id: user1.id,
-    flat_id: flat1.id
-    )
-Booking.create!(
-    start_date: "2021-10-01",
-    end_date: "2021-10-10",
-    user_id: user2.id,
-    flat_id: flat2.id
-    )
-Booking.create!(
-    start_date: "2021-10-01",
-    end_date: "2021-10-10",
-    user_id: user3.id,
-    flat_id: flat3.id
-    )
-Booking.create!(
-    start_date: "2021-10-01",
-    end_date: "2021-10-10",
-    user_id: user4.id,
-    flat_id: flat4.id
-    )
-
-Booking.create!(
-    start_date: "2021-10-01",
-    end_date: "2021-10-10",
-    user_id: user5.id,
-    flat_id: flat5.id
-)
-
-Booking.create!(
-    start_date: "2021-10-01",
-    end_date: "2021-10-10",
-    user_id: user6.id,
-    flat_id: flat6.id
-)
-
-Booking.create!(
-    start_date: "2021-10-01",
-    end_date: "2021-10-10",
-    user_id: user7.id,
-    flat_id: flat7.id
-)
-Booking.create!(
-    start_date: "2021-10-01",
-    end_date: "2021-10-10",
-    user_id: user8.id,
-    flat_id: flat8.id
-)
+20.times do
+  Booking.create!(
+    start_date: Faker::Date.between(from: '2024-01-01', to: '2024-12-31'),
+    end_date: Faker::Date.between(from: '2021-10-01', to: '2021-12-31'),
+    user_id: User.all.sample.id,
+    flat_id: Flat.all.sample.id
+  )
+end
 
 puts "Finished creating bookings!"
