@@ -5,7 +5,7 @@
             <div id="carouselExampleControls" class="carousel slide m-4" data-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img src="https://staging.canopyandstars.co.uk/var/self_catering_site/storage/images/media/images/treehouses-autumn-availability/194825684-1-eng-GB/treehouses-autumn-availability_quality_seventy.jpg" class="d-block w-100" alt="...">
+                  <img src="<%= @flat.photo_url %>" alt="Flat image" class="d-block w-100">
                   </div>
                   <div class="carousel-item">
                     <img src="https://www.blueforest.com/wp-content/uploads/2019/08/the-magic-home-slider-01.jpg" class="d-block w-100" alt="...">
@@ -54,7 +54,7 @@
       <p class="caraousel-text">About: <%= @flat.description %></p>
       <p class="caraousel-text">Price: £<%= @flat.price_per_night.round()%>per night</p>
       <p class="caraousel-text">Number of guests: <%= @flat.number_of_guests %></p>
-      <p class="caraousel-text">Location:<%= @flat.location %></p>
+      <p class="caraousel-text">Location:<%= @flat.address%></p>
   </div>
 
 
