@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:create, :update]
+  before_action :set_booking, only: [:create, :update, :destroy]
 
   def index
     @flat = Flat.find(params[:flat_id])
@@ -9,14 +9,24 @@ class BookingsController < ApplicationController
     @user_bookings = Booking.where(user_id: @user.id)
   end
 
+  def my_bookings
+    @user = User.find(19)
+    @bookings = @user.bookings
+    # @flat = Flat.find(params[:flat_id])
+  end
+
   def new
     @booking = Booking.new
   end
 
   def create
+    raise
+    @flat = Flat.find(params[:flat_id])
+    @user = current_user
     @booking = Booking.new(booking_params)
+    @booking.flat = @flat
     if @booking.save
-      redirect_to user_booking_path(@booking)
+      redirect_to my_bookings_path, notice: "Booking was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
@@ -26,6 +36,11 @@ class BookingsController < ApplicationController
     @booking.update(booking_params)
   end
 
+  def destroy
+    @booking.destroy
+    redirect_to my_bookings_path
+  end
+
   private
 
   def set_booking
@@ -33,6 +48,6 @@ class BookingsController < ApplicationController
   end
 
   def bookink_params
-    require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date)
   end
 end
