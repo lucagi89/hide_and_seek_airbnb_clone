@@ -13,12 +13,15 @@
     <%= favicon_link_tag asset_path('logo1.png') %>
   </head>
 
-  <body>
+  <body style="min-height:100vh; border:solid 1px blue;">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= render "shared/flashes" %>
-    <%= render "shared/navbar" %>
-    <%= yield %>
-    <%= render "shared/footer" %>
+    <div class = "d-flex flex-column justify-content-end" style="min-height:100vh;">
+      <div><%= render "shared/navbar" %></div>
+      <div class="flex-grow-1"><%= yield %></div>
+      <div style="border: 1px solid red;"><%= render "shared/footer" %></div>
+    </div>
   </body>
+    
 </html>

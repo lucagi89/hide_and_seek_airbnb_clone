@@ -1,7 +1,8 @@
 
-<div class="mt-5">
+<div class="mt-5 d-flex flex-wrap gap-5">
   <% @bookings.each do |booking| %>
-<div>
+ <div class="col-lg-2 col-md-6 mb-5 cards d-flex flex-column justify-content-between booking-card">
+   <%= image_tag booking.flat.photo_url, class: "card-img-top", style:"max-width:100%"%>
   <h3><%= booking.flat.name %></h3>
   <ul>
     <li><%=booking.start_date%></li>
