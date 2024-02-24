@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:create, :update, :destroy]
+  before_action :set_booking, only: [:update, :destroy]
 
   def index
     @flat = Flat.find(params[:flat_id])
@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
   end
 
   def my_bookings
-    @user = User.find(19)
+    @user = current_user
     @bookings = @user.bookings
     # @flat = Flat.find(params[:flat_id])
   end
@@ -20,11 +20,11 @@ class BookingsController < ApplicationController
   end
 
   def create
-    raise
     @flat = Flat.find(params[:flat_id])
     @user = current_user
     @booking = Booking.new(booking_params)
     @booking.flat = @flat
+    @booking.user = @user
     if @booking.save
       redirect_to my_bookings_path, notice: "Booking was successfully created."
     else
@@ -47,7 +47,7 @@ class BookingsController < ApplicationController
     @booking = Booking.find(params[:id])
   end
 
-  def bookink_params
+  def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
 end
