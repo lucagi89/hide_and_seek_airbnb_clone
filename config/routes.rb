@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :flats do
-    resources :bookings, only: %i[index new create update]
+    # resources :reviews, only: %i[show create destroy]
+    resources :bookings, only: %i[new create]
   end
-  resources :reviews, only: %i[show create destroy]
+
+  resources :bookings, only: %i[destroy]
 end
