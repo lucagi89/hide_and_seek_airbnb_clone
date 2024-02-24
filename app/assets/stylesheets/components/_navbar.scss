@@ -1,6 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  box-shadow: 2px 3px 5px 0 rgba(0,0,0,.2);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +13,42 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.avatar {
+  height: 38px;
+  width: 38px; /* Set the height to match your buttons */
+  padding: 0;  /* Reset padding, assuming no padding is required */
+}
+
+.avatar:hover {
+  border-radius: 10px;
+  background-color:#5cb85c !important;
+}
+
+.dropdown-item {
+  padding: 8px;
+}
+
+.dropdown {
+  border-radius: 10px;
+}
+
+.dropdown-item:hover {
+  border-radius: 10px;
+  background-color:#5cb85c !important;
+}
+
+.nav-link:hover {
+  border-radius: 10px;
+  background-color:#5cb85c !important;
+}
+
+.form-control {
+  border-radius: 10px;
+  color: #5cb85c;
+}
+
+.btn-outline-success {
+  border-radius: 10px;
 }
