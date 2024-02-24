@@ -3,14 +3,13 @@
     <%= link_to root_path, class: "navbar-brand" do %>
       <i class="fas fa-tree-city"></i>
     <% end %>
-     <a class="navbar-brand" href="#"> Hide n Seek</a>
+     <a class="navbar-brand" href="<%= root_path %>"> Hide n Seek</a>
 
     <!-- Centered Search Bar -->
-    <div class="mx-auto d-flex">
-      <form class="d-flex">
-        <input class="form-control me-2 flex-grow-0" type="search" placeholder="Seek adventure" aria-label="Search" style="height: 38px;">
-        <button class="btn btn-outline-success" type="submit" style="height: 38px;">Seek</button>
-      </form>
+    <div class="nav-links mx-auto d-flex">
+      <%= link_to 'Home', root_path %>
+      <%= link_to 'Bookings', new_flat_path, class:'mx-5' %>
+      <%= link_to 'Favourites' %>
     </div>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -20,16 +19,15 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-              <%= link_to raw('<i class="fa-solid fa-plus"></i> Join the Cause'), "#", class: "nav-link" %>
+              <%= link_to raw('<i class="fa-solid fa-plus"></i> Become a Host'), new_flat_path, class: "btn btn-success mx-2" %>
             </li>
           <li class="nav-item active">
-            <%= link_to raw('<i class="fa-solid fa-book-atlas"></i> Bookings'), "new_flat_booking_path", class: "nav-link" %>
           </li>
           </li>
           <li class="nav-item dropdown">
             <li class="nav-item dropdown">
               <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img src="<%= asset_path('profile_pic.png') %>" class="avatar" alt="dropdown menu">
+                <img src="<%= asset_path('profile_pic.png') %>" class="avatar mx-2" alt="dropdown menu">
               </a>
               <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                 <%= link_to raw('<i class="fa-solid fa-user"></i> Profile'), "#", class: "dropdown-item" %>

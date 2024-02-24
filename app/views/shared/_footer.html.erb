@@ -1,0 +1,36 @@
+<div class="footer-container">
+  <div class="footer d-flex flex-column align-items-center" style="background-color: #f0f0f0; padding: 20px;">
+    <div class="footer-brand text-center mb-3">
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <i class="fas fa-tree-city"></i>
+      <% end %>
+      <a class="navbar-brand" href="<%= root_path %>">Hide n Seek</a>
+    </div>
+
+    <!-- Additional Links -->
+    <div class="d-flex flex-column flex-sm-row align-items-center mb-3">
+      <ul class="nav mb-3 mb-sm-0">
+        <li class="nav-item"><%= link_to "About Us", root_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Get in Touch", root_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "FAQs", root_path, class: "nav-link" %></li>
+      </ul>
+
+      <!-- Subscribe Form -->
+      <div class="footer-subscribe ml-sm-auto mb-3">
+        <form action="#" method="post">
+          <label for="email">Subscribe to Our Newsletter:</label>
+          <div class="subscribe-form">
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+            <button type="submit">Subscribe</button>
+          </div>
+        </form>
+      </div>
+
+    <!-- End Additional Links and Subscribe Form -->
+
+  </div>
+
+  <!-- Dark Strip at the Bottom -->
+ <div class="dark-strip text-dark text-center py-2 d-flex align-items-center justify-content-center">
+  <p class="mb-0">&copy; Bark Buddies</p>
+</div>
