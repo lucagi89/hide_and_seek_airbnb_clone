@@ -1,44 +1,25 @@
-
-footer {
-  position: relative;
-  bottom: 0;
-  width: 100%;
-  background-color: #f0f0f0;
-  padding: 20px;
+.footer {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  z-index: 1;
+  height: 100px;
+  padding: 0px 50px;
+  color: rgba(0,0,0,0.3);
 }
-
-.footer-left ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-left li {
-  display: inline;
-  margin-right: 20px;
-}
-
-.footer-right form {
+.footer-links {
   display: flex;
-  flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
 }
-
-.subscribe-form {
-  display: flex;
+.footer-links a {
+  color: black;
+  opacity: 0.15;
+  text-decoration: none;
+  font-size: 24px;
+  padding: 0px 10px;
 }
-
-.subscribe-form input {
-  padding: 8px;
-  margin-right: 5px;
+.footer-links a:hover {
+  opacity: 1;
 }
-
-.subscribe-form button {
-  padding: 8px;
-  background-color: #4caf50;
-  color: #fff;
-  border: none;
-  cursor: pointer;
+.footer .fa-heart {
+  color: #D23333;
 }
