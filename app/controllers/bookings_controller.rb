@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_acction :set_booking, only: [:create, :update]
+  before_action :set_booking, only: [:create, :update]
 
   def index
     @flat = Flat.find(params[:flat_id])
