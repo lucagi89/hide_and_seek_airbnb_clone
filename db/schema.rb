@@ -11,10 +11,9 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
-ActiveRecord::Schema[7.1].define(version: 2024_02_18_122826) do
 =======
 ActiveRecord::Schema[7.1].define(version: 2024_02_17_202804) do
->>>>>>> 600eafad8c6246f40b2e014bb788f679b1442702
+>>>>>>> 93dd65c569cc8b8a543f856c07d73e8a65b1fbfc
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,13 +59,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_17_202804) do
 
   create_table "flats", force: :cascade do |t|
     t.string "name"
-    t.string "location"
     t.decimal "price_per_night"
     t.text "description"
     t.integer "number_of_guests"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "city"
+    t.string "address"
+    t.string "photo_url"
     t.index ["user_id"], name: "index_flats_on_user_id"
   end
 
