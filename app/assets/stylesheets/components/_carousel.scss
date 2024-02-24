@@ -1,7 +1,31 @@
-.carousel {
-  border: none;
 
-  img{
-    border-radius: 20px
-  }
+.sticky-top{
+  position: sticky;
+  top: 96px;
+  // margin-top: 50px;/* Adjust this value to set the distance from the top */
+  // left: 70%; /* Center the form horizontally */
+  // transform: translateX(-50%);
+  // z-index: 1000;
+  width: 400px;
+}
+
+.border{
+  border-radius: 10px;
+}
+
+.info{
+  width: 60vw;
+}
+.btn-flat {
+  color: #4A4A4A;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.btn-flat:hover {
+  opacity: 1;
 }
