@@ -13,6 +13,10 @@ class FlatsController < ApplicationController
   def show
   end
 
+  def new
+    @flat = Flat.new
+  end
+
   def create
     @flat = Flat.find(flat_params)
     @flat.save

@@ -1,0 +1,22 @@
+<div class="banner-new">
+    <div class="banner-new-text">
+      <h1>Become a host!</h1>
+      <p>Unlock the potential of your space and embark on an exciting journey as a Hide n Seek host! Join our global community today and turn your property into unforgettable experiences for travelers worldwide.</p>
+    </div>
+</div>
+
+
+
+<div class="container my-4">
+<h3>List your property</h3>
+  <%= simple_form_for @flat do |f| %>
+    <%= f.input :name, label: "Name of your property" %>
+    <%= f.input :address, label: "Address" %>
+    <%= f.input :city, label: "City" %>
+    <%= f.input :description, label: "Description" %>
+    <%= f.input :number_of_guests, label: "Number of guests" %>
+    <%= f.input :price_per_night, label: "Price per night" %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true }%>
+    <%= f.button :submit %>
+  <% end %>
+</div>
