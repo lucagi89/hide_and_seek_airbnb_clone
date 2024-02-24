@@ -10,14 +10,4 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
-
-body, html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  border: solid 1px;
-}
-
-body {
-  min-height: 100%;
-}
+@import "pages/login"

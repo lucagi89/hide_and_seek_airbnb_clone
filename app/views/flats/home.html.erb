@@ -16,12 +16,11 @@
   <%= render "shared/cards" %>
 </div>
 
-<div class="mt-3 py-4 text-center">
-  <div class="py-4 trustpilot">
-    <h2>Rated "excellent" for a reason.</h2>
-    <p>Our platform specializes in curating a collection of extraordinary accommodations </p>
-    <p> ranging from cozy treehouses nestled in lush forests to charming houseboats bobbing on serene waters</p>
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOoXJblfzsUl5uYfXHAK-Mfccavrk54eaPAaQnJ_Nlhw&s">
+<div class="review-banner mt-3 py-5">
+  <div class="container py-4 d-flex flex-column justify-content-center align-items-center">
+    <h2>Rated <em>"excellent"</em> for a reason.</h2>
+    <p>Our platform specializes in curating a collection of extraordinary accommodations ranging from cozy treehouses nestled in lush forests to charming houseboats bobbing on serene waters</p>
+    <%= image_tag ("trustpilot.png"), style:'height:40px;width:300px;' %>
   </div>
 </div>
 
