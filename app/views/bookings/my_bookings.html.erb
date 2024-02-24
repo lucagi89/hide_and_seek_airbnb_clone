@@ -1,11 +1,12 @@
 
-<div class="mt-5">
+<div class="m-5">
   <% @bookings.each do |booking| %>
 <div>
+  <%= image_tag booking.flat.photo_url, class: "card-img-top", style:"width: 250px;" %>
   <h3><%= booking.flat.name %></h3>
   <ul>
-    <li><%=booking.start_date%></li>
-    <li><%=booking.end_date%></li>
+    <li><span>Start date: </span><%=booking.start_date%></li>
+    <li><span>End date: </span><%=booking.end_date%></li>
   </ul>
   <%= link_to destroy_booking_path(booking), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
           <i class="fa-solid fa-trash"></i>
