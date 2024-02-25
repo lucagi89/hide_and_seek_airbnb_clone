@@ -33,7 +33,8 @@ class BookingsController < ApplicationController
   end
 
   def update
-    @booking.update(booking_params)
+    raise
+    # @booking.update(booking_params)
   end
 
   def destroy
