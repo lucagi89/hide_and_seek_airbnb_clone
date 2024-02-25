@@ -1,31 +1,56 @@
-.banner-new {
-  background-color: #f5f5f5;
-  padding: 20px;
-  border: 1px solid #ccc;
-  height: 70vh;
-  background-image: url('https://cdn.jsdelivr.net/gh/i-have-no-buddies/the-tax-relief-expert-cdn@master/v2/mortgage/first-time/banner.png');
+.banner-host {
+  margin-top: 20px;
+  height:100vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.jsdelivr.net/gh/i-have-no-buddies/the-tax-relief-expert-cdn@master/v2/mortgage/first-time/banner.png');
   background-size: cover;
   background-position: center;
+}
+
+
+.banner-host-text{
   display: flex;
   flex-direction: column;
-  align-items: start;
-  justify-content: center;
-}
-
-.banner-new-text{
-  text-shadow: 4px 4px 8px #a5a5a5;
+  gap: 20px;
   width: 40vw;
-  margin-left: 60px;
+  color: rgb(0, 0, 0);
+  background-color: rgba(255, 255, 255, 0.725);
+  border-radius: 20px;
+  margin-left: 100px;
+  padding: 40px;
+
+  h1{
+    font-size: 72px;
+    color: black;
+    margin-bottom: 10px;
+  }
+
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: $green;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    display: inline;
+
+    button:hover {
+      background-color: $green-hover;
+      color: white;
+    }
+  }
 }
 
-.banner-new h1 {
-  font-size: 60px;
-  color: black;
-  margin-bottom: 10px;
+.host-form {
+  background-color: white;
+  border-radius: 20px;
+  padding: 40px;
+  width: 50%;
 }
 
-.banner-new p {
-  margin-bottom: 0;
-  color: black;
-  font-size: 20px;
+.img-form {
+  box-shadow: 4px 4px 8px 8px white inset;
+  margin-left: 20px;
+  margin-top: 20px;
+  border-radius: 20px;
 }

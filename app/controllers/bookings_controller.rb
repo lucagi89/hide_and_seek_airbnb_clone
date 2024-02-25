@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
   end
 
   def my_bookings
-    @user = User.find(19)
+    @user = User.find(current_user.id)
     @bookings = @user.bookings
     # @flat = Flat.find(params[:flat_id])
   end
@@ -20,7 +20,6 @@ class BookingsController < ApplicationController
   end
 
   def create
-    raise
     @flat = Flat.find(params[:flat_id])
     @user = current_user
     @booking = Booking.new(booking_params)
