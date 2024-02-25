@@ -1,0 +1,17 @@
+.accordion{
+  border-top: 2px solid rgba(125, 150, 131, 0.505) !important;
+  button{
+    background-color: #f4f4f4;
+    border: none;
+    padding: 20px;
+  }
+}
+  .accordion-item{
+    border: none;
+    .accordion-button{
+      background-color: #f4f4f4;
+      border: none;
+      border-bottom: 2px solid rgba(125, 150, 131, 0.505) !important;
+      box-shadow: none;
+    }
+  }

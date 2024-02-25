@@ -10,7 +10,11 @@ class BookingsController < ApplicationController
   end
 
   def my_bookings
+<<<<<<< HEAD
     @user = current_user
+=======
+    @user = User.find(current_user.id)
+>>>>>>> 9db96e2b2f0ae618d7140ebdacd4d3e11672d1bb
     @bookings = @user.bookings
     # @flat = Flat.find(params[:flat_id])
   end

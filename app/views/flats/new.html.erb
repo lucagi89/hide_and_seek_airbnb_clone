@@ -1,22 +1,62 @@
-<div class="banner-new">
-    <div class="banner-new-text">
-      <h1>Become a host!</h1>
-      <p>Unlock the potential of your space and embark on an exciting journey as a Hide n Seek host! Join our global community today and turn your property into unforgettable experiences for travelers worldwide.</p>
+
+<div class="banner-host d-flex align-items-center mt-5">
+  <div class="banner-host-text">
+    <h1>Become a host with Hide n Seek!</h1>
+    <p>Unlock the potential of your space and embark on an exciting journey as a Hide n Seek host! Join our global community today and turn your property into unforgettable experiences for travelers worldwide.</p>
+    <div>
+      <a class="btn btn-success" href="#host-form">List your property now!</a>
     </div>
+  </div>
 </div>
 
+<div class="container d-flex flex-column text-center mt-5"  >
+  <h2><strong>Bring the right guests within reach</strong></h2>
+  <p>Connect with millions of people whose purpose, taste and budget make your property the perfect place to stay.</p>
+  <div class="d-flex justify-content-around my-5">
+    <div class="mx-5">
+      <%= image_tag ("VR-icon-ideal-guests.png"), style:'height:80px;width:80px;' %>
+      <h5 class="mt-2"><strong>Access a world of travellers</strong></h5>
+      <p>From long-range planners to last-minute bookers, bring travellers to your door from around the world.</p>
+    </div>
+    <div class="mx-5">
+      <%= image_tag ("VR-icon-world-travelers.png"), style:'height:80px;width:80px;' %>
+      <h5 class="mt-2"><strong>Attract your ideal guests</strong></h5>
+      <p>Book your ideal guests—travellers who delight in what you provide and want to return again and again.</p>
+    </div>
+    <div class="mx-5">
+      <%= image_tag ("VR-icons-grow-business.png"), style:'height:80px;width:80px;' %>
+      <h5 class="mt-2"><strong>Grow your business</strong></h5>
+      <p>Make decisions based on real-time data, be more competitive & help increase visibility and bookings.</p>
+    </div>
+  </div>
+</div>
 
+<div class="my-5"></div>
 
-<div class="container my-4">
-<h3>List your property</h3>
-  <%= simple_form_for @flat do |f| %>
-    <%= f.input :name, label: "Name of your property" %>
-    <%= f.input :address, label: "Address" %>
-    <%= f.input :city, label: "City" %>
-    <%= f.input :description, label: "Description" %>
-    <%= f.input :number_of_guests, label: "Number of guests" %>
-    <%= f.input :price_per_night, label: "Price per night" %>
-    <%= f.input :photos, as: :file, input_html: { multiple: true }%>
-    <%= f.button :submit %>
-  <% end %>
+<div class="container my-5">
+  <h1>Frequently asked questions</h1>
+  <%= render "shared/accordion" %>
+</div>
+
+<div class="my-5"></div>
+<div class="my-5" ></div>
+
+<div class="container mt-5" id="host-form" >
+  <h1>List your property</h1>
+  <div class="d-flex justify-content-between mt-5">
+    <div class='host-form mt-4'>
+      <%= simple_form_for @flat do |f| %>
+        <%= f.input :name, label: "Name of your property" %>
+        <%= f.input :address, label: "Address" %>
+        <%= f.input :city, label: "City" %>
+        <%= f.input :description, label: "Description" %>
+        <%= f.input :number_of_guests, label: "Number of guests" %>
+        <%= f.input :price_per_night, label: "Price per night" %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true }%>
+        <%= f.submit "List my property", class:"btn-login mt-4" %>
+      <% end %>
+    </div>
+      <%= image_tag 'https://www.upcyclist.co.uk/wp-content/webpc-passthru.php?src=https://www.upcyclist.co.uk/wp-content/uploads/2021/04/Cabin-to-rent-in-Cornwall-1-683x1024.jpg&nocache=1', class:"img-form" %>
+    </div>
+  </div>
 </div>

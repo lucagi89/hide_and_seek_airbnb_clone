@@ -2,7 +2,7 @@
   background: url('https://images.pexels.com/photos/2869565/pexels-photo-2869565.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
   background-size: cover;
   height: 100vh;
-  width: 100wh;
+  width: 100vw;
   // background-position: right;
 }
 
@@ -21,7 +21,7 @@
   padding: 16px;
 }
 .btn-login {
-  width: 100%;
+  width: 50%;
   height: 50%;
   border-radius: 40px;
   background: $green;
@@ -30,8 +30,7 @@
     background: $green-hover;
     color: white;
   }
-  color: black;
-  font-weight: bold;
+  color: white;
   padding: 10px;
 }
 
@@ -89,7 +88,7 @@ a {
     background: $green-hover;
     color: white;
   }
-  color: black;
+  color: rgb(255, 255, 255);
   font-weight: bold;
   padding: 10px;
 }
