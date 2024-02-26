@@ -3,10 +3,22 @@ class Flat < ApplicationRecord
   validates :price_per_night, presence: true
   validates :description, presence: true
   validates :number_of_guests, presence: true
+  validates :city, presence: true
+  validates :address, presence: true
+
+
 
   has_many :bookings
   has_many :users, through: :bookings
   has_many :reviews, through: :bookings
+  belongs_to :user
 
-  # has_many_attached :photos
+  has_many_attached :photos
+
+  include PgSearch::Model
+  pg_search_scope :search_by_location_name_and_description,
+    against: [ :city, :name, :address, :description],
+    using: {
+      tsearch: { prefix: true }
+  }
 end
