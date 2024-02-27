@@ -1,8 +1,11 @@
 .cards {
-  border: none;
+  border-radius: 20px;
+  padding-bottom: 5px;
+
   img{
     border-radius: 20px;
     height: 250px;
+    width: 100%;
   }
 
   h5{
@@ -19,7 +22,7 @@
   }
 }
 
-.cards a:hover {
-  transform: scale(1.05);
+.cards:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 }

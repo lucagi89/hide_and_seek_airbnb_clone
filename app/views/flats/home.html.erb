@@ -4,31 +4,33 @@
     <p>Your gateway to uncovering hidden gems around the globe!</p>
   </div>
   <div class='mt-3'>
-    <%= render "shared/search_bar" %>
+    <div class="row justify-content-center">
+      <div class="col-sm-8 my-3">
+        <%= render "shared/search_bar" %>
+      </div>
+    </div>
   </div>
 </div>
 
 
-<% if @message.present? %>
-  <div class="container my-5 text-center" id="result">
-    <h4><%= @message %></h4>
-  </div>
-    <% else %>
-    <div class="container" id="result">
-      <h1 class="mt-4">Suggested destination</h1>
-      <%= render "shared/cards" %>
-    </div>
-    <div class="review-banner mt-3 py-5">
-    <div class="container py-4 d-flex flex-column justify-content-center align-items-center">
-      <h2>Rated <em>"excellent"</em> for a reason.</h2>
-      <p>Our platform specializes in curating a collection of extraordinary accommodations ranging from cozy treehouses nestled in lush forests to charming houseboats bobbing on serene waters</p>
-      <%= image_tag ("trustpilot.png"), style:'height:40px;width:300px;' %>
-    </div>
-  </div>
-
-  <div class="container">
-    <h1 class="mt-4">Most popular</h1>
+<div class="container">
+  <h1 class="mt-4">Popular destinations</h1>
+  <div class="row mt-4">
     <%= render "shared/cards" %>
   </div>
+</div>
 
-<% end %>
+<div class="review-banner mt-3 py-5">
+  <div class="container py-4 d-flex flex-column justify-content-center align-items-center">
+    <h2>Rated <em>"excellent"</em> for a reason.</h2>
+    <p>Our platform specializes in curating a collection of extraordinary accommodations ranging from cozy treehouses nestled in lush forests to charming houseboats bobbing on serene waters</p>
+    <%= image_tag ("trustpilot.png"), style:'height:40px;width:300px;' %>
+  </div>
+</div>
+
+<div class="container">
+  <h1 class="mt-4">Suggested properties</h1>
+  <div class="row mt-4">
+    <%= render "shared/cards" %>
+  </div>
+</div>
