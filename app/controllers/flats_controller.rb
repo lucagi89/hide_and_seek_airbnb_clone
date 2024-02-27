@@ -1,6 +1,6 @@
 class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home show]
-  before_action :set_flat, only: %i[show]
+  before_action :set_flat, only: %i[show destroy]
 
   def home
     if params[:query].present?
@@ -23,14 +23,19 @@ class FlatsController < ApplicationController
   end
 
   def create
-    @user = current_user
     @flat = Flat.new(flat_params)
+    @flat.user = current_user
 
     if @flat.save
       redirect_to flat_path(@flat), notice: "Your property was successfully created."
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @flat.destroy
+    redirect_to root_path, status: :see_other, alert: "Your property has been deleted."
   end
 
   private
