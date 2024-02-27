@@ -16,10 +16,10 @@ class BookingsController < ApplicationController
     @user = User.find(current_user.id)
     @bookings = @user.bookings
     # @flat = Flat.find(params[:flat_id])
-    respond_to do |format|
-      format.html { render :my_bookings, status: :ok }
-      format.json # <!-- make sure you have format.json, in addition to html
-    end
+    # respond_to do |format|
+    #   format.html { render :my_bookings, status: :ok }
+    #   format.json # <!-- make sure you have format.json, in addition to html
+    # end
   end
 
   #/bookings/new
