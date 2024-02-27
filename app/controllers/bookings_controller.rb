@@ -1,6 +1,7 @@
 class BookingsController < ApplicationController
   before_action :set_booking, only: [:update, :destroy]
 
+  # /bookings
   def index
     @flat = Flat.find(params[:flat_id])
     @user = User.find(params[:user_id])
@@ -9,20 +10,24 @@ class BookingsController < ApplicationController
     @user_bookings = Booking.where(user_id: @user.id)
   end
 
+  # /my_bookings
   def my_bookings
-<<<<<<< HEAD
-    @user = current_user
-=======
+    # @user = current_user
     @user = User.find(current_user.id)
->>>>>>> 9db96e2b2f0ae618d7140ebdacd4d3e11672d1bb
     @bookings = @user.bookings
     # @flat = Flat.find(params[:flat_id])
+    respond_to do |format|
+      format.html { render :my_bookings, status: :ok }
+      format.json # <!-- make sure you have format.json, in addition to html
+    end
   end
 
+  #/bookings/new
   def new
     @booking = Booking.new
   end
 
+  #/bookings
   def create
     @flat = Flat.find(params[:flat_id])
     @user = current_user
@@ -36,11 +41,19 @@ class BookingsController < ApplicationController
     end
   end
 
+  #/bookings/:id
   def update
-    raise
-    # @booking.update(booking_params)
+    if @booking.update(booking_params)
+      # Handle successful update
+      render json: { status: "success" }, status: :ok
+    else
+      # Handle update failure
+      render json: { status: "error" }, status: :unprocessable_entity
+    end
+
   end
 
+  #/bookings/:id
   def destroy
     @booking.destroy
     redirect_to my_bookings_path
@@ -53,6 +66,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date)
+    params.require(:booking).permit(:start_date, :end_date, :accepted, :flat_id, :user_id)
   end
 end

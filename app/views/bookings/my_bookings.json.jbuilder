@@ -12,8 +12,8 @@
         <% if booking.accepted %>
           <p style="color:green;">Booking Approved</p>
         <% else %>
-          <%= simple_form_for booking, data: { controller: "bookings", action: "submit->bookings#approve" } do |f| %>
-            <%= f.submit "Approve Booking", class: "btn btn-primary" %>
+          <%= simple_form_for booking, data: { action: "submit->bookings#approve" } do |f|%>
+            <%= f.submit "Approve Booking", class:"btn btn-primary"%>
           <% end %>
           <%# <button class = "btn btn-primary" data-action="click->bookings#approve">Click</button> %>
         <% end %>
