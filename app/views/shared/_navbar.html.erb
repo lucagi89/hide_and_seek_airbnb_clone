@@ -9,7 +9,7 @@
     <div class="nav-links mx-auto d-flex">
       <% if user_signed_in? %>
         <%= link_to 'Home', root_path, class:'mx-5' %>
-        <%= link_to 'My Bookings', new_flat_path, class:'mx-5' %>
+        <%= link_to 'My Bookings', my_bookings_path, class:'mx-5' %>
         <%= link_to 'My Listings', new_flat_path, class:'mx-5' %>
       <% else %>
         <div class="mx-auto">
