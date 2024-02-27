@@ -1,7 +1,8 @@
 
-<div class="mt-5 d-flex flex-wrap gap-5">
+<div class="m-5 d-flex flex-wrap gap-5">
   <% @bookings.each do |booking| %>
- <div class="col-lg-3 col-md-6 mb-5 cards d-flex flex-column justify-content-between" data-controller="bookings">
+
+    <div class="col-lg-3 col-md-6 mb-5 cards d-flex flex-column justify-content-between" data-controller="bookings">
       <%= link_to flat_path(booking.flat) do %>
         <%= image_tag booking.flat.photo_url, class: "card-img-top" %>
       <% end %>
@@ -12,16 +13,17 @@
         <% if booking.accepted %>
           <p style="color:green;">Booking Approved</p>
         <% else %>
-          <%= simple_form_for booking, data: { controller: "bookings", action: "submit->bookings#approve" } do |f| %>
-            <%= f.submit "Approve Booking", class: "btn btn-primary" %>
-          <% end %>
-          <button class = "btn btn-primary" data-action="click->bookings#approve">Click</button>
+          <form action="/bookings/<%=booking.id%>" method="patch">
+          <input type="hidden" name="booking[accepted]" value="true">
+          <input type="submit" value="Approve" class="btn btn-primary">
+          </form>
         <% end %>
-      </div>
-    </div>
-  <%= link_to destroy_booking_path(booking), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+
+      <%= link_to booking_path(booking), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
           <i class="fa-solid fa-trash"></i>
-        <% end %>
-</div>
-<% end %>
+      <% end %>
+      </div>
+  </div>
+  <% end %>
+
 </div>
