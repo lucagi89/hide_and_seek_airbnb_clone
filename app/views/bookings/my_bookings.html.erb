@@ -13,15 +13,19 @@
         <% if booking.accepted %>
           <p style="color:green;">Booking Approved</p>
         <% else %>
-          <form action="/bookings/<%=booking.id%>" method="patch">
-          <input type="hidden" name="booking[accepted]" value="true">
-          <input type="submit" value="Approve" class="btn btn-primary">
-          </form>
-        <% end %>
+          <div class="d-flex justify-content-between align-items-center" style="width:100%; ">
+            <form action="/bookings/<%=booking.id%>" method="patch" data-turbo-form>
+              <input type="hidden" name="booking[accepted]" value="true">
+              <input type="submit" value="Approve" class="btn btn-primary">
+            </form>
+            <p> or </p>
+            <%= link_to booking_path(booking), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+              <i class="fa-solid fa-trash" style="font-size:30px;"></i>
+            <% end %>
+          </div>
 
-      <%= link_to booking_path(booking), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-          <i class="fa-solid fa-trash"></i>
-      <% end %>
+
+        <% end %>
       </div>
   </div>
   <% end %>
