@@ -2,13 +2,19 @@
     <div class="container-image-map d-flex">
         <%# <div id="carouselExampleControls" class="carousel slide d-flex justify-content-between" data-ride="carousel"> %>
           <div class="image w-100 m-4">
-              <img src="<%= @flat.photo_url %>" class="w-100" alt="Flat image">
+            <% if @flat.photo_url.present? %>
+              <%= image_tag @flat.photo_url, class: "card-img-top" %>
+            <% else %>
+              <img src="<%= @flat.photos.last.url %>" class="w-100" alt="Flat image">
+            <% end %>
           </div>
           <div class="map w-95 m-4">
             <img src="https://oobrien.com/wordpress/wp-content/uploads/2016/07/googlemaps_july2016.jpg" class="w-100" alt="">
           </div>
         <%# </div> %>
     </div>
+
+    <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, flat_path(@flat), class: "", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove your #{@flat.name}?" } %>
 
     <div class="container-info d-flex justify-content-between">
         <div class="container-descr">
