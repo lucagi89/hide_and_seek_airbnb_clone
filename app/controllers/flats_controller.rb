@@ -1,13 +1,15 @@
 class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[home show]
-  before_action :set_flat, only: %i[show]
+  before_action :set_flat, only: %i[show destroy]
 
   def home
-    @flats = Flat.all
-  end
-
-  def query
-    @flats = Flat.where("location ILIKE ?", "%#{params[:query]}%")
+    if params[:query].present?
+      @flats = Flat.search_by_location_name_and_description(params[:query])
+      @message = "There are no properties available for the selected location. Please try again." if @flats.empty?
+    else
+      @flats = Flat.all
+    end
+    params[:query] = nil
   end
 
   def show
@@ -21,9 +23,19 @@ class FlatsController < ApplicationController
   end
 
   def create
-    @flat = Flat.find(flat_params)
-    @flat.save
-    redirect_to flat_path(@flat)
+    @flat = Flat.new(flat_params)
+    @flat.user = current_user
+
+    if @flat.save
+      redirect_to flat_path(@flat), notice: "Your property was successfully created."
+    else
+      render :new, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    @flat.destroy
+    redirect_to root_path, status: :see_other, alert: "Your property has been deleted."
   end
 
   private
@@ -33,6 +45,6 @@ class FlatsController < ApplicationController
   end
 
   def flat_params
-    params.require(:flat).permit(:name, :photos, :city, :address, :price_per_night, :description, :number_of_guests)
+    params.require(:flat).permit(:name, :address, :city, :description, :number_of_guests, :price_per_night, photos: [])
   end
 end
