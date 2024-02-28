@@ -2,19 +2,15 @@
   <% @flats.each do |flat|  %>
     <div class="col-lg-3 col-md-6 mb-5 cards d-flex flex-column justify-content-center">
       <%= link_to flat_path(flat) do %>
-        <% if flat.photo_url.present? %>
-          <%= image_tag flat.photo_url, class: "card-img-top" %>
-        <% else %>
-          <%= cl_image_tag flat.photos.last.key, class: "card-img-top" %>
-        <% end %>
-      <% end %>
-      <div class="mt-2 mx-2">
-        <div class="d-flex justify-content-between">
-          <p class=""><%= flat.name %></p>
-          <p> ★ <%= rand(3..5) %>.0</p>
+        <%= image_tag flat.photo_url, class: "card-img-top" %>
+        <div class="mt-2 mx-2">
+          <div class="d-flex justify-content-between">
+            <p><%= flat.name %></p>
+            <p> ★ <%= rand(3..5) %>.0</p>
+          </div>
+          <h6><i class="fa-solid fa-location-dot"></i> <%= flat.city %> </h6>
+          <p><strong>￡<%= flat.price_per_night.round() %></strong> night</p>
         </div>
-        <h6><i class="fa-solid fa-location-dot"></i> <%= flat.city %> </h6>
-        <p><strong>￡<%= flat.price_per_night.round() %></strong> night</p>
-      </div>
+      <% end %>
     </div>
   <% end %>

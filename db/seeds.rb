@@ -17,59 +17,135 @@ User.destroy_all
 
 puts "Creating users..."
 
-20.times do
-    User.create!(
-      name: Faker::Name.name,
-      email: Faker::Internet.email,
-      password: Faker::Internet.password(min_length: 8)
-    )
-end
+admin = User.create!(
+  name: "Admin",
+  email: "admin@admin.com",
+  password: "123456"
+)
+
+User.create!(
+  name: "Vincent",
+  email: "vincent@vincent.com",
+  password: "vincent"
+)
+
 
 puts "Finished creating users!"
 
 puts "Creating flats..."
 
-properties = [
-  "https://a0.muscache.com/im/pictures/miso/Hosting-5264493/original/10d2c21f-84c2-46c5-b20b-b51d1c2c971a.jpeg?im_w=720",
-  "https://a0.muscache.com/im/pictures/f672c9b4-cc80-46bc-890b-a085efaee2d7.jpg?im_w=720",
-  "https://a0.muscache.com/im/pictures/1db57275-c036-4dbf-b896-32ee22253e48.jpg?im_w=720",
-  "https://a0.muscache.com/im/pictures/ba068000-9f61-459c-9ecb-6edc11169604.jpg?im_w=720",
-  "https://a0.muscache.com/im/pictures/hosting/Hosting-1019299865555116257/original/90b8ccdd-627d-4081-bea2-cf5dca87ed8f.jpeg?im_w=720",
-  "https://a0.muscache.com/im/pictures/miso/Hosting-53427254/original/2f26b277-ca8e-4c7b-bec2-d72f61803234.jpeg?im_w=720",
-  "https://a0.muscache.com/im/pictures/miso/Hosting-32081638/original/f181cbd0-07a1-4250-b0c0-83798b962855.jpeg?im_w=720",
-  "https://a0.muscache.com/im/pictures/miso/Hosting-651183262441548030/original/8ae0522d-5df4-44df-b6de-08103795ab74.jpeg?im_w=720",
-  "https://a0.muscache.com/im/pictures/miso/Hosting-713793474951553871/original/2ac03203-3d06-441c-bc82-77f28ac26c6a.jpeg?im_w=720",
-  "https://a0.muscache.com/im/pictures/miso/Hosting-28254684/original/7ae3a2eb-29b5-4443-971c-aaee77899d86.jpeg?im_w=720",
-  "https://a0.muscache.com/im/pictures/prohost-api/Hosting-1027800814785286766/original/f5927ea7-8a8c-4d8f-b8ac-f1bbdcf01c6e.jpeg?im_w=720",
-  "https://a0.muscache.com/im/pictures/miso/Hosting-676044415326884478/original/e32429f8-56bd-4ba1-a98a-46efc64e3e69.jpeg?im_w=720"
-]
+Flat.new(
+  name: "AirShip with Breathtaking Highland Views",
+  city: "Drimnin, United Kingdom",
+  address: "1 bedroom - 1 bed - 1 bathroom",
+  description: "Retreat to the deck of this sustainable getaway and gaze at the twinkling constellations under a cosy tartan blanket. AirShip 2 is an iconic, insulated aluminum pod designed by Roderick James with views of the Sound of Mull from dragonfly windows. Airship002 is comfortable, quirky and cool. It does not pretend to be a five star hotel. The reviews tell the story. If booked for the dates you want check out our new listing The Pilot House, Drimnin which is on the same 4 acra site.
 
-12.times do
-  photo_url = properties.sample
-  properties.delete(photo_url)
-  Flat.create!(
-    name: Faker::Address.community,
-    city: Faker::Address.city,
-    address: Faker::Address.street_address,
-    description: Faker::Lorem.paragraph,
-    price_per_night: rand(50..200),
-    number_of_guests: rand(1..10),
-    photo_url: photo_url,
-    user_id: User.all.sample.id
-  )
-end
+    The kitchen has a toaster, electric kettle, tefal halogen hob, combination oven/microwave. All pots and pans, plates, glasses ,cutlery provided. All you will need to bring is your food. worth stocking up on your way in as Lochaline is the nearest place to shop which is 8 miles away.
+
+    The AirShip is situated in a beautiful, secluded position on a four-acre site. Stunning views reach across the Sound of Mull towards Tobermory on the Isle of Mull and out to sea toward Ardnamurchan Point.
+    The space
+    The kitchen has a toaster, electric kettle, tefal halogen hob, combination oven/microwave. All pots and pans, plates, glasses ,cutlery provided. All you will need to bring is your food. worth stocking up on your way in as Lochaline is the nearest place to shop which is 8 miles away.",
+  price_per_night: 170,
+  number_of_guests: 2,
+  photo_url: "https://a0.muscache.com/im/pictures/f672c9b4-cc80-46bc-890b-a085efaee2d7.jpg?im_w=720",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "Moinho das Feteiras | The Mill",
+  city: "Ponta Delgada, Portugal",
+  address: "1 bedroom - 1 bed - 1 bathroom",
+  description: "Built in the 19th century, with a 360 degrees view over the sea and surroundings on the top floor.
+    It features a Bedroom with a king size bed, a very well-decorated living room with kitchenette, and a WC.
+    Free WiFi, air conditioning, Led TV and DVD player.
+    Private parking inside the premises, providing extra security.
+    Perfect for an unforgettable honeymoon experience.
+    The space
+    It has a 4000 m garden with sub-tropical fruit trees, garden trees, and flowers.
+    In addition to the Mill ideal for 2 people, it has two more accommodation units: the Mó de Cima's House ideal up to 3 people and the Moleiro's House that hold up tp 4 people.
+    Guest access
+    Guests have access to all property spaces.
+    Registration number
+    Exempt",
+  price_per_night: 180,
+  number_of_guests: 2,
+  photo_url: "https://a0.muscache.com/im/pictures/miso/Hosting-5264493/original/10d2c21f-84c2-46c5-b20b-b51d1c2c971a.jpeg?im_w=720",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "Bumble Barn at Great Field Farm",
+  city: "Canterbury, United Kingdom",
+  address: "3 bedrooms - 5 beds - 2 bathrooms",
+  description: "Great Field Farm is set in 45 acres, including gardens, paddocks and the great field with different crops each year.
+    Bumble Barn is the newest addition to our eco-friendly holiday lodges. Built to Passiv house standards with smart technology and a beautiful living sedum roof that bees love.
+    The views from the sitting room and patio over open fields and sky are stunning, with wildlife all around.
+    Truly quiet and rural, yet Canterbury, Folkestone, Hythe, Channel Tunnel only 10 minutes drive.
+    The space
+    Bumble Barn has a large sitting, dining and kitchen area, opening onto the patio with views of the horse paddocks, open field and trees.
+    Sitting Room has a smart 4K TV
+    Fully equipped kitchen with large fridge/freezer
+    Main bedroom with king sized double bed and en suite shower room. Optional colour changing LED lighting.
+    2 twin bedrooms. Main bathroom with bath/shower",
+  price_per_night: 310,
+  number_of_guests: 6,
+  photo_url: "https://a0.muscache.com/im/pictures/2ce2f829-7965-479a-af98-c5a84824ce06.jpg?im_w=720",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "The Floating Terrarium",
+  city: "Greater London, United Kingdom",
+  address: "2 guests - 1 bedroom - 1 bed - 1 bathroom",
+  description: "Come stay on the Floating Terrarium one of the Airbnb’s OMG winning designs.
+
+    This place is the perfect juxtaposition of luxury & nature. An eco-conscious experience that will have you immersed in a 48.3sqm space with over 150 plants, situated on the canal in East London’s coolest area, Hackney.
+
+    15 minute walk to local transport whilst also have tonnes of local shops bars a stones throw away.
+
+    Personalised location guides available on request!",
+  price_per_night: 190,
+  number_of_guests: 2,
+  photo_url: "https://a0.muscache.com/im/pictures/dacc7843-4386-49ec-8535-38bd35709ad8.jpg?im_w=720",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "RentitSpain: Casa Acantilado",
+  city: "Salobreña, Spain",
+  address: "3 bedrooms - 4 beds - 3 bathrooms",
+  description: "Rent the Entire Cliff House for Yourself, as seen on Netflix's 'The World's Most Extraordinary Homes', located on the Granada Coast. Perched in the mountains with a perfect 20°C climate. Its unique design, exclusive furniture, and captivating views will enchant you. Enjoy a spacious 150 m² living room with open kitchen, overlooking the Mediterranean. Just 5 km to the beach for sea adventures, and near Sierra Nevada for skiing in winter.
+    The space
+    The Cliff House is not just a dwelling, but a true architectural masterpiece where every detail, from design to functionality, has been meticulously orchestrated to provide an unparalleled experience. The roof, an engineering spectacle, employs a system of artisanally deformed metal mesh formwork, covered with hand-made zinc scales, all supported by rafters.
+
+    Inside, the furniture is not just pieces, but unique digital designs created by the architects, with the goal of merging comfort and aesthetics exclusively for guests. The entire house is conditioned for total climate comfort, equipped with air conditioning and heat pump systems that guarantee optimal comfort in any season.",
+  price_per_night: 536,
+  number_of_guests: 6,
+  photo_url: "https://a0.muscache.com/im/pictures/1bd12dfa-f681-4979-b805-b0c7b6b5511c.jpg?im_w=720",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "Secret Suite",
+  city: "Amsterdam, Netherlands",
+  address: "1 bedroom - 2 beds - 2.5 bathrooms",
+  description: Faker::Lorem.paragraph,
+  price_per_night: 845,
+  number_of_guests: 2,
+  photo_url: "https://a0.muscache.com/im/pictures/miso/Hosting-20952140/original/9552783a-f452-4963-b5d0-22a362d37c53.jpeg?im_w=720",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "Sweet night under the stars",
+  city: "Caylus, France",
+  address: "1 bedroom - 1 bed - 1 bathroom",
+  description: "The enveloping all-wood structure of the zôme, open on the top to the stars thanks to its 6 branch rose window, welcomes you for a visit of pure relaxation and diconnection. In order to preserve the environmental impact, the zôme has been designed in order to reduce its carbon footprint as much as possible. It is therefore managed in an eco-responsable way, the supply of water by a battery-powered pump system, electricity by a solar panel and dry toilets. This cocooning space awaits you and offers you relaxation with its readings, word games or board games. You can also have the opportunity to meditate (2 stools and mats await you) A peacefull outdoor space is reserved for you where you can relax on deckchairs and an hammock for 2 peoples. Or keep busy playing Molki, darts, rackets, pétanque... And if you want to visit the multi-faceted region, a notebook is at your disposal with a range of activities to practice : hiking from the zôme, tourist visits from Caylus (medieval town)... If you do not want to go out for dinner, you have on site and at any time you want a catering service by providing 100% organic and seasonal dishes (individual canned glass - low temperature cooking) and reheatable on the spot that you can consume inside or outside. If natural light is not enough to recharge the solar panel, don't worry auxiliary lightings are available for you in order to maintain constant lighting during your evening.",
+  price_per_night: 118,
+  number_of_guests: 2,
+  photo_url: "https://a0.muscache.com/im/pictures/b7756897-ef31-4080-b881-c4c7b9ec0df7.jpg?im_w=720",
+  user_id: admin.id
+).save
+
 
 puts 'Finished creating flats!'
-
-puts "Creating bookings..."
-
-20.times do
-  Booking.create!(
-    start_date: Faker::Date.between(from: '2024-01-01', to: '2024-12-31'),
-    end_date: Faker::Date.between(from: '2021-10-01', to: '2021-12-31'),
-    user_id: User.all.sample.id,
-    flat_id: Flat.all.sample.id
-  )
-end
-
-puts "Finished creating bookings!"

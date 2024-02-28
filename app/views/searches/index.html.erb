@@ -40,8 +40,9 @@
       <% end %>
     </div>
 
-    <div class="map">
-      <img src="https://media.wired.com/photos/59269cd37034dc5f91bec0f1/master/w_2240,c_limit/GoogleMapTA.jpg" alt="" style="width:600px;">
-    </div>
+    <div style="width: 50%; height: 800px;"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
 </div>
