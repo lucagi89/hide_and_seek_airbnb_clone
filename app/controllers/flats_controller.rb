@@ -10,18 +10,17 @@ class FlatsController < ApplicationController
       @flats = Flat.all
     end
     params[:query] = nil
-    @markers = @flats.geocoded.map do |flat|
-      {
-        lat: flat.latitude,
-        lng: flat.longitude
-      }
-    end
   end
 
   def show
     @user = current_user
     # @booking = Booking.new(flat_id: @flat.id, user_id: current_user.id, start_date: params[:start_date], end_date: params[:end_date])
     @booking = Booking.new
+    @markers = @flat.geocode
+      {
+        lat: @flat.latitude,
+        lng: @flat.longitude
+      }
   end
 
   def new
