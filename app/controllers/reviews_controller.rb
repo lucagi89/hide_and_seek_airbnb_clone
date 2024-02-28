@@ -1,8 +1,4 @@
 class ReviewsController < ApplicationController
-  def show
-    @flat = Flat.find(params[:flat_id])
-    @reviews = @flat.reviews
-  end
 
   def create
     @flat = Flat.find(params[:flat_id])
