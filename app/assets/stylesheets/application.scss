@@ -11,3 +11,8 @@
 @import "components/index";
 @import "pages/index";
 @import "pages/login";
+
+html{
+  box-sizing: border-box;
+  margin: 0;
+}
