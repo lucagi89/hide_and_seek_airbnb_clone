@@ -103,3 +103,10 @@ A car is not required for transport to and from this property
         </div>
     </div>
 </div>
+
+  <div style="width: 70%; height: 500px;"
+      id ="map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
