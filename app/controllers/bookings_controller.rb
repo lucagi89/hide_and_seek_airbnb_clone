@@ -43,14 +43,12 @@ class BookingsController < ApplicationController
 
   #/bookings/:id
   def update
-    if @booking.update(booking_params)
-      # Handle successful update
-      render json: { status: "success" }, status: :ok
+    @booking = Booking.find(params[:id])
+    if @booking.update(accepted: true)
+      redirect_to my_bookings_path, notice: "Booking was successfully approved."
     else
-      # Handle update failure
-      render json: { status: "error" }, status: :unprocessable_entity
+      redirect_to my_bookings_path, alert: "Failed to approve booking."
     end
-
   end
 
   #/bookings/:id

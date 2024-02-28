@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   root to: "flats#home"
 
   devise_scope :user do
-    get 'profile', to: 'users#show', as: :profile
-    delete "/bookings/:id", to: "bookings#destroy", as: :destroy_booking
+    # get 'profile', to: 'users#show', as: :profile
+    # delete "/bookings/:id", to: "bookings#destroy", as: :destroy_booking
     get '/my_bookings', to: 'bookings#my_bookings', as: :my_bookings
   end
 
@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     resources :bookings, only: %i[new create]
   end
 
-  resources :bookings, only: %i[destroy]
+  resources :bookings, only: %i[update destroy]
 end
