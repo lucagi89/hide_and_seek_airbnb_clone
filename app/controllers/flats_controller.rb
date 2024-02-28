@@ -3,19 +3,7 @@ class FlatsController < ApplicationController
   before_action :set_flat, only: %i[show destroy]
 
   def home
-    if params[:query].present?
-      @flats = Flat.search_by_location_name_and_description(params[:query])
-      @message = "There are no properties available for the selected location. Please try again." if @flats.empty?
-    else
-      @flats = Flat.all
-    end
-    params[:query] = nil
-    @markers = @flats.geocoded.map do |flat|
-      {
-        lat: flat.latitude,
-        lng: flat.longitude
-      }
-    end
+    @flats = Flat.all
   end
 
   def show

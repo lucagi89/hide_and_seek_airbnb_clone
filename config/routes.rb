@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     get '/my_bookings', to: 'bookings#my_bookings', as: :my_bookings
   end
 
+  resources :searches, only: %i[index]
   resources :flats do
     # resources :reviews, only: %i[show create destroy]
     resources :bookings, only: %i[new create]
