@@ -5,7 +5,7 @@
         <% if flat.photo_url.present? %>
           <%= image_tag flat.photo_url, class: "card-img-top" %>
         <% else %>
-          <%= cl_image_tag flat.photos.last.key, class: "card-img-top" %>
+          <%# <%= cl_image_tag flat.photos.last.key, class: "card-img-top" %> 
         <% end %>
       <% end %>
       <div class="">

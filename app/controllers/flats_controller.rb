@@ -19,9 +19,11 @@ class FlatsController < ApplicationController
   end
 
   def show
+    @flat = Flat.find(params[:id])
     @user = current_user
     # @booking = Booking.new(flat_id: @flat.id, user_id: current_user.id, start_date: params[:start_date], end_date: params[:end_date])
     @booking = Booking.new
+    @review = Review.new
   end
 
   def new
