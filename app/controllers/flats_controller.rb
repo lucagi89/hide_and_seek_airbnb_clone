@@ -10,6 +10,12 @@ class FlatsController < ApplicationController
       @flats = Flat.all
     end
     params[:query] = nil
+    @markers = @flats.geocoded.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude
+      }
+    end
   end
 
   def show

@@ -5,7 +5,7 @@
             <div id="carouselExampleControls" class="carousel slide m-4" data-ride="carousel">
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                  <img src="<%= @flat.photo_url %>" alt="Flat image" class="d-block w-100">
+                  <img src="<%= @flat.photo_url %>" alt="Flat image" class="cover m-5">
                   </div>
                   <div class="carousel-item">
                     <img src="https://www.blueforest.com/wp-content/uploads/2019/08/the-magic-home-slider-01.jpg" class="d-block w-100" alt="...">
@@ -143,3 +143,10 @@
 <div class ="border m-3 p-2">
   <h4> Where am will I be? </h4>
 </div>
+
+  <div style="width: 70%; height: 500px;"
+      id ="map"
+      data-controller="map"
+      data-map-markers-value="<%= @markers.to_json %>"
+      data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
