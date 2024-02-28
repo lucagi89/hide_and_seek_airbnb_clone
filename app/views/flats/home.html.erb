@@ -15,8 +15,19 @@
 
 <div class="container">
   <h1 class="mt-4">Popular destinations</h1>
-  <div class="row mt-4">
-    <%= render "shared/cards" %>
+  <div class="d-flex justify-content-between">
+    <div class="d-flex flex-column cards">
+      <%= image_tag "https://a0.muscache.com/im/pictures/prohost-api/Hosting-863641733524515325/original/e781e710-1a1a-42e5-8b7d-feb665d1b625.jpeg?im_w=720", class: "card-img-top" %>
+      <h6>France</h6>
+    </div>
+    <div class="d-flex flex-column cards">
+      <%= image_tag "https://a0.muscache.com/im/pictures/57c386b4-9f3e-4468-81f4-93b31219e621.jpg?im_w=720", class: "card-img-top" %>
+      <h6>Spain</h6>
+    </div>
+    <div class="d-flex flex-column cards">
+      <%= image_tag "https://a0.muscache.com/im/pictures/337660c5-939a-439b-976f-19219dbc80c7.jpg?im_w=720", class: "card-img-top" %>
+      <h6>Greece</h6>
+    </div>
   </div>
 </div>
 
