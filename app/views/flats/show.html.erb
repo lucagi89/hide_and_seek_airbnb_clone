@@ -19,7 +19,7 @@
     </div>
 
     <div class="container-info d-flex justify-content-between">
-      
+
           <div class="mb-3">
             <%= f.label :start_date, "Start Date", class: "form-label" %>
             <%= f.date_field :start_date, class: "form-control", placeholder: "Select start date", data: { controller: "datepicker" } %>
@@ -41,8 +41,8 @@
             </div>
         </div>
     </div>
-                <div class="bottom-buttons"> --->
+                <div class="bottom-buttons">
                   <%= link_to '<i class="btn btn-outline-danger"> Delete </i>'.html_safe, flat_path(@flat), class: "delete-btn position-fixed-bottom", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove your #{@flat.name}?" } %>
                   <%= link_to '<i class="btn btn-outline-success"> Edit </i>'.html_safe, flat_path(@flat), class: "edit-btn position-fixed-bottom", data: { turbo_method: :edit, turbo_confirm: "Are you sure you want to remove your #{@flat.name}?" } %>
-                <--- </div>
+                </div>
 </div>
