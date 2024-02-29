@@ -19,33 +19,7 @@
     </div>
 
     <div class="container-info d-flex justify-content-between">
-        <div class="container-descr">
-            <div class="info m-3 p-2">
-                <h2 class="caraousel-name"><%= @flat.name %></h2>
-                <p class="caraousel-text">Number of guests: <%= @flat.number_of_guests %></p>
-                <p class="caraousel-text">Location:<%= @flat.address%></p>
-            </div>
-
-            <div class="info m-3 p-2">
-                <h4>Rooms & beds</h4>
-            </div>
-
-            <div class="info m-3 p-2 d-flex justify-content-between">
-                <h4>About the host</h4>
-                <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
-            </div>
-
-            <div class="info m-3 p-2 d-flex justify-content-between">
-                <h4>Contact</h4>
-                <a class="btn btn-flat w-10 m-2" href="#">Contact host</a>
-            </div>
-        </div>
-
-        <div class="container-booking mt-3">
-            <div class=" p-4 my-3 sticky-top">
-                  <h4 class="caraousel-text">£<%= @flat.price_per_night.round() %><span style="font-size: 12px;"> per night</span></h4>
-                  <%= form_with(model: [@flat, @booking]) do |f| %>
-
+      
           <div class="mb-3">
             <%= f.label :start_date, "Start Date", class: "form-label" %>
             <%= f.date_field :start_date, class: "form-control", placeholder: "Select start date", data: { controller: "datepicker" } %>
