@@ -4,7 +4,7 @@ class FlatsController < ApplicationController
 
   def home
     @flats = Flat.all
-      end
+  end
 
   def show
     @flat = Flat.find(params[:id])

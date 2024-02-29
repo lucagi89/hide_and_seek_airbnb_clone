@@ -71,4 +71,8 @@
                   <%= link_to '<i class="btn btn-outline-danger"> Delete </i>'.html_safe, flat_path(@flat), class: "delete-btn position-fixed-bottom", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove your #{@flat.name}?" } %>
                   <%= link_to '<i class="btn btn-outline-success"> Edit </i>'.html_safe, flat_path(@flat), class: "edit-btn position-fixed-bottom", data: { turbo_method: :edit, turbo_confirm: "Are you sure you want to remove your #{@flat.name}?" } %>
                 <--- </div>
+
+                <div>
+                  <%= render "shared/reviews" %>
+                </div>
 </div>
