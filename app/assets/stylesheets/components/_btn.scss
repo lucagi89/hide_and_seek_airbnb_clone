@@ -1,0 +1,24 @@
+.delete-btn {
+  background: none;
+  border: none;
+  color: #dc3545; /* Red color */
+  cursor: pointer;
+}
+.delete-btn:hover {
+  color: #c82333; /* Darker red color on hover */
+}
+
+.bottom-buttons {
+  position: relative;
+  bottom: 20px; /* Adjust as needed */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.delete-btn,
+.edit-btn {
+  margin: 0 10px; /* Adjust as needed */
+}

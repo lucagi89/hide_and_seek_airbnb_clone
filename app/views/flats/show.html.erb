@@ -3,80 +3,46 @@
         <%# <div id="carouselExampleControls" class="carousel slide d-flex justify-content-between" data-ride="carousel"> %>
           <div class="image w-100 m-4">
             <% if @flat.photo_url.present? %>
-              <%= image_tag @flat.photo_url, class: "card-img-top" %>
+              <%= image_tag @flat.photo_url, height:400, crop: :fill, class: "card-img-top" %>
             <% else %>
               <img src="<%= @flat.photos.last.url %>" class="w-100" alt="Flat image">
             <% end %>
           </div>
-          <div class="map w-95 m-4">
-            <img src="https://oobrien.com/wordpress/wp-content/uploads/2016/07/googlemaps_july2016.jpg" class="w-100" alt="">
+          <div class="mt-4" style="width: 100%; height: 400px;"
+              id ="map"
+              data-controller="map"
+              data-map-markers-value="<%= @markers.to_json %>"
+              data-map-api-key-value="<%= 'pk.eyJ1IjoiaWFtdG9tc2ZyYXNlciIsImEiOiJjbHQ0dXM3Z2swNjBxMmlwaDRnMHp5YWlmIn0.dxrZR4rokX5XaEY1B7bj6A'%>">
           </div>
+
         <%# </div> %>
     </div>
 
-    <%= link_to '<i class="fa-solid fa-trash"></i>'.html_safe, flat_path(@flat), class: "", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove your #{@flat.name}?" } %>
-
     <div class="container-info d-flex justify-content-between">
         <div class="container-descr">
-            <div class="info border m-3 p-2">
+            <div class="info m-3 p-2">
                 <h2 class="caraousel-name"><%= @flat.name %></h2>
                 <p class="caraousel-text">Number of guests: <%= @flat.number_of_guests %></p>
                 <p class="caraousel-text">Location:<%= @flat.address%></p>
             </div>
 
-            <div class="info border m-3 p-2">
+            <div class="info m-3 p-2">
                 <h4>Rooms & beds</h4>
             </div>
 
-            <div class="info border m-3 p-2">
-              <h4>Frequently asked questions</h4>
-                <!-- Your FAQ content here -->
-            </div>
-
-            <div class="other border m-3 p-2">
-                <h4>Have a question?</h4>
-
-            </div>
-
-            <div class="info border m-3 p-2">
-                <h4>General Rules</h4>
-            </div>
-
-            <div class="info border m-3 p-2">
-                <h4>Cancellation</h4>
-            </div>
-
-            <div class="info border m-3 p-2 d-flex justify-content-between">
+            <div class="info m-3 p-2 d-flex justify-content-between">
                 <h4>About the host</h4>
                 <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
             </div>
 
-            <div class="info border m-3 p-2">
-                <h4>Important information</h4>
-                <p> This property is managed by a private host (a party not acting within their trade, business or profession). EU consumer law, including the right of withdrawal, will not apply to your booking. The cancellation policy set by the private host will cover your booking.
-Extra-person charges may apply and vary depending on property policy
-Government-issued photo identification and a credit card, debit card or cash deposit may be required at check-in for incidental charges
-Special requests are subject to availability upon check-in and may incur additional charges; special requests cannot be guaranteed
-On-site parties or group events are strictly prohibited
-Safety features at this property include a carbon monoxide detector, a fire extinguisher and a smoke detector
-We should mention
-A car is not required for transport to and from this property
-                </p>
-            </div>
-
-
-            <div class="info border m-3 p-2 d-flex justify-content-between">
+            <div class="info m-3 p-2 d-flex justify-content-between">
                 <h4>Contact</h4>
                 <a class="btn btn-flat w-10 m-2" href="#">Contact host</a>
             </div>
-
-            <div class="info border m-3 p-2 ">
-                <%= render "shared/reviews" %>
-            </div>
         </div>
 
-        <div class="container-booking">
-            <div class="border p-4 my-3 sticky-top">
+        <div class="container-booking mt-3">
+            <div class=" p-4 my-3 sticky-top">
                   <h4 class="caraousel-text">£<%= @flat.price_per_night.round() %><span style="font-size: 12px;"> per night</span></h4>
                   <%= form_with(model: [@flat, @booking]) do |f| %>
 
@@ -86,29 +52,23 @@ A car is not required for transport to and from this property
           </div>
 
           <div class="mb-3">
-            <%= f.label :end_date, "End Date", class: "form-label" %>
+            <%= f.label :end_date, "CHECKOUT", class: "form-label" %>
             <%= f.date_field :end_date, class: "form-control", placeholder: "Select end date", data: { controller: "datepicker" } %>
           </div>
 
           <div class="mb-3">
-            <%= f.label :message, "Message", class: "form-label" %>
-            <%= f.text_area :message, class: "form-control", placeholder: "Write your message here" %>
-          </div>
+          <%= f.label :number_of_guests, "GUESTS", class: "form-label" %>
+          <%= f.select :number_of_guests, (1..10), { prompt: "Select number of guests" }, class: "form-control" %>
+        </div>
 
-          <%= f.submit "Submit", class: "btn btn-primary w-20 rounded" %>
-
+          <%= f.submit "Reserve", class: "btn btn-primary w-100 btn-rounded mt-2" %>
         <% end %>
-
 
             </div>
         </div>
     </div>
+                <div class="bottom-buttons"> --->
+                  <%= link_to '<i class="btn btn-outline-danger"> Delete </i>'.html_safe, flat_path(@flat), class: "delete-btn position-fixed-bottom", data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to remove your #{@flat.name}?" } %>
+                  <%= link_to '<i class="btn btn-outline-success"> Edit </i>'.html_safe, flat_path(@flat), class: "edit-btn position-fixed-bottom", data: { turbo_method: :edit, turbo_confirm: "Are you sure you want to remove your #{@flat.name}?" } %>
+                <--- </div>
 </div>
-
-  <div style="width: 70%; height: 500px; p-4"
-      id ="map"
-      data-controller="map"
-      data-map-markers-value="<%= @markers.to_json %>"
-      data-map-api-key-value="<%='pk.eyJ1IjoiaWFtdG9tc2ZyYXNlciIsImEiOiJjbHQ0dXM3Z2swNjBxMmlwaDRnMHp5YWlmIn0.dxrZR4rokX5XaEY1B7bj6A'
- %>">
-    </div>
