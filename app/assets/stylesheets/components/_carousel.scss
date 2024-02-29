@@ -10,8 +10,52 @@
 }
 
 .border{
-  border-radius: 10px;
+  border: 1px solid #ced4da; /* Border color */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px;
 }
+
+.container-info {
+  margin-bottom: 20px; /* Bottom margin */
+}
+
+.info {
+  background-color: #fff; /* White background color */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Padding */
+}
+
+.info h2, .info h4 {
+  margin-top: 0; /* Remove top margin for headings */
+}
+
+.info p {
+  margin-bottom: 10px; /* Bottom margin for paragraphs */
+}
+
+.avatar {
+  width: 50px; /* Avatar image width */
+  height: 50px; /* Avatar image height */
+  border-radius: 50%; /* Rounded avatar */
+  object-fit: cover; /* Cover image */
+  margin-left: 10px; /* Left margin */
+}
+
+.btn-flat {
+  background-color: transparent; /* Transparent background */
+  border: 1px solid #007bff; /* Button border color */
+  color: #007bff; /* Button text color */
+  padding: 10px 20px; /* Padding */
+  border-radius: 4px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition */
+}
+
+.btn-flat:hover {
+  background-color: #007bff; /* Darker background color on hover */
+  color: #fff; /* Button text color on hover */
+}
+
 
 .info{
   width: 60vw;
@@ -28,4 +72,42 @@
 
 .btn-flat:hover {
   opacity: 1;
+}
+
+.container-booking {
+  background-color: #fff; /* White background color */
+  border: 1px solid #03060900; /* Border color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  padding: 3px; /* Padding */
+  margin-bottom: 20px; /* Bottom margin */
+}
+.container-booking h4 {
+  color: #000000; /* Heading text color */
+  margin-bottom: 20px; /* Bottom margin for heading */
+}
+.form-label {
+  font-weight: bold; /* Bold label text */
+}
+.form-control {
+  width: 100%; /* Full width input */
+  padding: 10px; /* Padding */
+  margin-bottom: 15px; /* Bottom margin */
+  border: 1px solid #ced4da; /* Border color */
+  border-radius: 4px; /* Rounded corners */
+}
+.btn-primary {
+  background-color: $green; /* Primary button color */
+  color: #fff; /* Button text color */
+  border: none; /* Remove button border */
+  padding: 10px 20px; /* Padding */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+.btn-primary:hover {
+  background-color: #72aa36e7;/* Darker primary button color on hover */
+}
+.btn-rounded {
+  border-radius: 20px; /* Rounded button corners */
 }

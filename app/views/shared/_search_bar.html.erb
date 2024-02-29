@@ -1,13 +1,8 @@
-<div class="row justify-content-center">
-  <div class="col-sm-8 my-3">
-    <%= form_with url: root_path, method: :get, class: "d-flex" do %>
-      <%= text_field_tag :query,
-            params[:query],
-            class: "form-control",
-            placeholder: "Enter a city or country...",
-            class: "input"
-        %>
-      <%= submit_tag "Search", class: "btn-search" %>
-    <% end %>
-  </div>
-</div>
+<%= form_with url: searches_path, method: :get, class: "d-flex" do %>
+  <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "🔍 Enter a city or country...",
+        class: "input"
+    %>
+<% end %>
