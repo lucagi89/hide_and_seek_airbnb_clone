@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: "flats#home"
 
   devise_scope :user do
+    get '/my_requests', to: 'bookings#my_requests', as: :my_requests
     get '/my_bookings', to: 'bookings#my_bookings', as: :my_bookings
   end
 
