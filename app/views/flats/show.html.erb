@@ -12,7 +12,7 @@
               id ="map"
               data-controller="map"
               data-map-markers-value="<%= @markers.to_json %>"
-              data-map-api-key-value="<%= 'pk.eyJ1IjoiaWFtdG9tc2ZyYXNlciIsImEiOiJjbHQ0dXM3Z2swNjBxMmlwaDRnMHp5YWlmIn0.dxrZR4rokX5XaEY1B7bj6A'%>">
+              data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
 
         <%# </div> %>
@@ -39,6 +39,11 @@
                 <h4>Contact</h4>
                 <a class="btn btn-flat w-10 m-2" href="#">Contact host</a>
             </div>
+
+            <div class="info m-3 p-2 d-flex justify-content-between">
+              <%= render "shared/reviews" %>
+            </div>
+
         </div>
 
         <div class="container-booking mt-3">
