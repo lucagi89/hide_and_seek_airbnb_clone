@@ -4,7 +4,11 @@
 
     <div class=" col-lg-3 col-md-6 mb-5 cards d-flex flex-column justify-content-between shadow" style="border-radius:30px 30px 0 0;" data-controller="bookings">
       <%= link_to flat_path(booking.flat) do %>
-        <%= image_tag booking.flat.photo_url, class: "card-img-top" %>
+          <% if booking.flat.photo_url.present? %>
+            <%= image_tag booking.flat.photo_url, class: "card-img-top" %>
+          <% elsif booking.flat.photos.present? %>
+            <%= cl_image_tag booking.flat.photos.last.key, crop: :fill, height: 200 %>
+          <% end %>
       <% end %>
       <div>
         <h3 class=" mt-3 text-center"><%= booking.flat.name %></h3>
