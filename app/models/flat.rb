@@ -11,7 +11,6 @@ class Flat < ApplicationRecord
   :will_save_change_to_address?
 
   has_many :bookings
-  has_many :users, through: :bookings
   has_many :reviews, through: :bookings
   belongs_to :user
 
