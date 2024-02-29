@@ -1,8 +1,12 @@
 .cards {
-  border: none;
+  border-radius: 20px;
+  padding-bottom: 5px;
+  height: max-content;
+
   img{
     border-radius: 20px;
     height: 250px;
+    width: 100%;
   }
 
   h5{
@@ -16,10 +20,15 @@
   }
   a{
     transition: 0.3s ease-in-out;
+    color: black;
+  }
+
+  a:hover {
+    text-decoration: underline;
   }
 }
 
-.cards a:hover {
-  transform: scale(1.05);
+.cards:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
 }
