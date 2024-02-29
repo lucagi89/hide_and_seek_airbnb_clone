@@ -12,14 +12,8 @@ class BookingsController < ApplicationController
 
   # /my_bookings
   def my_bookings
-    # @user = current_user
     @user = User.find(current_user.id)
     @bookings = @user.bookings
-    # @flat = Flat.find(params[:flat_id])
-    # respond_to do |format|
-    #   format.html { render :my_bookings, status: :ok }
-    #   format.json # <!-- make sure you have format.json, in addition to html
-    # end
   end
 
   #/bookings/new
@@ -43,7 +37,6 @@ class BookingsController < ApplicationController
 
   #/bookings/:id
   def update
-    @booking = Booking.find(params[:id])
     if @booking.update(accepted: true)
       redirect_to my_bookings_path, notice: "Booking was successfully approved."
     else
