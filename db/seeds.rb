@@ -147,5 +147,61 @@ Flat.new(
   user_id: admin.id
 ).save
 
+Flat.new(
+  name: "Woolbrook Reservoir",
+  city: "Devon, United Kingdom",
+  address: "6 bedrooms - 10 beds - 4 bathrooms",
+  description: "Woolbrook Reservoir in Sidmouth is a luxury, uniquely designed celebration home with a sprawling top-tier private garden (with hot tub, bar and countryside views). Sky-high glass frames a light-flooded central courtyard around which lie 6 bedrooms, 4 bathrooms, a huge high spec kitchen / diner, sitting room and games room. The inside space extends out to a covered area with more seating, table tennis and pool table via bifold doors, making it perfect for gatherings no matter the weather.
+  The space
+  The long entrance hall has a bench seat with several doors leading off (one of which to the right is where the utility with washing machine and tumble dryer are kept, and one to the left which leads to the gym / weight training room). The hall then has a door at the far end which opens into the breath-taking triple volume foyer with a seating area and two modern leather aviator chairs
+  ",
+  price_per_night: 842,
+  number_of_guests: 16,
+  photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-699095541647431947/original/2c2221c3-d014-4b4f-a850-29ee47620304.jpeg?im_w=720",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "Lov'Nid Passion cabin",
+  city: "Joncherey, France",
+  address: "1 bedroom - 1 bed - 1 bathroom",
+  description: "Discover the Lov 'Nid Passion cabin, a cocoon of love perched at 6 meters height. Enjoy the charming setting of this romantic accommodation in the heart of the nature.
+  The space
+  You will access it with a spiral staircase that will take you to the first part of the treehouse, consisting of a living room to enjoy cocooning moments. A hanging hammock awaits on the terrace with stunning views of the surrounding nature. Let yourself be lulled by birds chirping and the gentle sound of foliage. Now it's time to experience your cozy nest. To do this, cross the suspension bridge which will take you straight to your room for a timeless romantic night out.",
+  price_per_night: 197,
+  number_of_guests: 2,
+  photo_url: "https://a0.muscache.com/im/pictures/miso/Hosting-610511843622686196/original/253bfa1e-8c53-4dc0-a3af-0a75728c0708.jpeg?im_w=720",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "Cabin Drommen - Treehouse",
+  city: "Guyonvelle, France",
+  address: "1 bedroom - 1 bed - 0 bathrooms",
+  description: "Discover the magical world of the Drommen cabin, unique in France.
+  With 4 levels:
+  the living room, then the toilet, then the bedroom.
+  Finally, you can dine on the perched terrace.",
+  price_per_night: 84,
+  number_of_guests: 2,
+  photo_url: "https://a0.muscache.com/im/pictures/miso/Hosting-24598097/original/91290830-0db6-40c0-a23b-86a904ee5239.jpeg?im_w=720",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "Wild Spa Cabin ",
+  city: "Joncherey, France",
+  address: "1 bedroom - 1 bed - 0 bathrooms",
+  description: "At the end of the pond, you'll stumble across this magnificent floating hut and enter the wild scenery of the place to fully experience the Coucoo Grands Reflets huts.
+
+  After a boat ride to access your nest, dive into your hot tub for a pure moment of relaxation on the calm waters of the pond. The 360° terrace of the Spa Sauvage hut will allow you to fully enjoy the panorama !
+  Other things to note
+  This cabin is equipped with dry toilets and a 10L water reserve. Our individual and all equipped bathrooms are located in the ecohut at the reception building level and are accessible 24 hours a day",
+  price_per_night: 265,
+  number_of_guests: 2,
+  photo_url: "https://a0.muscache.com/im/pictures/9e10ac8b-903d-4e54-9a23-74935f14b4a6.jpg?im_w=720",
+  user_id: admin.id
+).save
+
 
 puts 'Finished creating flats!'
