@@ -12,14 +12,10 @@ class FlatsController < ApplicationController
     @user = current_user
     @booking = Booking.new
     @review = Review.new
-    @markers = @flats.geocoded.map do |flat|
-      if @flat == flat
-        {
-          lat: flat.latitude,
-          lng: flat.longitude
-        }
-      end
-    end
+    @markers = [{
+      lat: @flat.latitude,
+      lng: @flat.longitude
+    }]
   end
 
   def new
