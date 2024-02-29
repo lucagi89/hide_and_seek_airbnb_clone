@@ -3,7 +3,7 @@ class FlatsController < ApplicationController
   before_action :set_flat, only: %i[show destroy]
 
   def home
-          @flats = Flat.all
+    @flats = Flat.all
       end
 
   def show
