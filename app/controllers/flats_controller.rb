@@ -14,10 +14,10 @@ class FlatsController < ApplicationController
     @review = Review.new
     @markers = @flats.geocoded.map do |flat|
       if @flat == flat
-      {
-        lat: flat.latitude,
-        lng: flat.longitude
-      }
+        {
+          lat: flat.latitude,
+          lng: flat.longitude
+        }
       end
     end
   end
