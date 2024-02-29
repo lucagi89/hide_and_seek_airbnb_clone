@@ -11,9 +11,15 @@ class BookingsController < ApplicationController
   end
 
   # /my_bookings
+  def my_requests
+    @user = User.find(current_user.id)
+    @own_flats = @user.owned_flats
+    @requests  = Booking.joins(:flat).where(flats: { user_id: @user.id })
+  end
+
   def my_bookings
     @user = User.find(current_user.id)
-    @bookings = @user.bookings
+    @bookings = Booking.where(user_id: @user.id)
   end
 
   #/bookings/new

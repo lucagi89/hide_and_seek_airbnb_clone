@@ -10,7 +10,11 @@
       <% if user_signed_in? %>
         <%= link_to 'Home', root_path, class:'mx-5' %>
         <%= link_to 'My Bookings', my_bookings_path, class:'mx-5' %>
-        <%= link_to 'My Listings', new_flat_path, class:'mx-5' %>
+        <% user_is_host = current_user.owned_flats.any? %>
+        <% if user_is_host %>
+          <%= link_to 'My Listings', my_requests_path, class:'mx-5' %>
+          <%= link_to 'My Requests', my_requests_path, class:'mx-5' %>
+        <% end %>
       <% else %>
         <div class="mx-auto">
       <%= link_to 'Home', root_path %>

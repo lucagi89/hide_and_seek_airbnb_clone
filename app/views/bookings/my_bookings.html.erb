@@ -21,16 +21,9 @@
           <p style="color:green; font-weight: 600; font-size:25px;">Booking Approved</p>
           </div>
         <% else %>
-          <div class="d-flex justify-content-around align-items-center mb-3" style="width:100%; ">
-            <form action="/bookings/<%=booking.id%>" method="patch" data-turbo-form>
-              <input type="hidden" name="booking[accepted]" value="true">
-              <input type="submit" value="Approve" class="btn btn-success" style="width: 140px;">
-            </form>
-            <p> or </p>
-            <%= link_to "Delete", booking_path(booking), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"btn btn-danger", style:"width: 140px;"%>
-          </div>
-
-
+        <div class="d-flex justify-content-center align-items-center mb-3" style="width:100%; ">
+          <p style="color:orange; font-weight: 600; font-size:25px;">Booking Pending</p>
+        </div>
         <% end %>
       </div>
   </div>
