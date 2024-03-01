@@ -17,20 +17,41 @@
           <p class="d-flex justify-content-between"><span>Departure:</span><span><%= booking.end_date %></span></p>
         </div>
         <% if booking.accepted %>
-        <div class="d-flex justify-content-center align-items-center mb-3" style="width:100%; ">
-          <p style="color:green; font-weight: 600; font-size:25px;">Booking Approved</p>
-          </div>
-        <% else %>
           <div class="d-flex justify-content-around align-items-center mb-3" style="width:100%; ">
-            <form action="/bookings/<%=booking.id%>" method="patch" data-turbo-form>
-              <input type="hidden" name="booking[accepted]" value="true">
-              <input type="submit" value="Approve" class="btn btn-success" style="width: 140px;">
-            </form>
-            <p> or </p>
-            <%= link_to "Delete", booking_path(booking), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"btn btn-danger", style:"width: 140px;"%>
+            <p style="color:green; font-weight: 600; font-size:18px;">Booking Approved</p>
+            <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#payModal<%= booking.id %>">
+              Pay Now
+            </button>
+          <div class="modal fade" id="payModal<%= booking.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Payment</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <p><%= booking.flat.name %></p>
+                  <% number_of_days = (booking.end_date - booking.start_date).to_i %>
+                  <p><%= number_of_days %> <% if number_of_days > 1 %>nights<% else %>night<% end %> at <%= booking.flat.price_per_night %>£ per night</p>
+                  <p>Total: <%= booking.flat.price_per_night * number_of_days %>£</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                  <%= link_to root_path , class: "btn btn-primary text-white", data: { toggle: "modal", target: "#payModal" } do %>
+                      Pay
+                    <% end %>
+                </div>
+              </div>
+            </div>
+          </div>
+
           </div>
 
 
+        <% else %>
+        <div class="d-flex justify-content-center align-items-center mb-3" style="width:100%; ">
+          <p style="color:orange; font-weight: 600; font-size:25px;">Booking Pending</p>
+        </div>
         <% end %>
       </div>
   </div>

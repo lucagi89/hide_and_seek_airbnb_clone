@@ -8,9 +8,18 @@
     <!-- Centered Search Bar -->
     <div class="nav-links mx-auto d-flex">
       <% if user_signed_in? %>
-        <%= link_to 'Home', root_path, class:'mx-5' %>
-        <%= link_to 'My Bookings', my_bookings_path, class:'mx-5' %>
-        <%= link_to 'My Listings', listings_path, class:'mx-5' %>
+        <%= link_to 'Explore', root_path, class:'mx-5' %>
+        <%= link_to 'Bookings', my_bookings_path, class:'mx-5' %>
+        <% user_is_host = current_user.owned_flats.any? %>
+        <% if user_is_host %>
+          <% requests_number  = Booking.joins(:flat).where(accepted: false).where(flats: { user_id: current_user.id }).count %>
+          <% notification = requests_number.positive? ? requests_number : "" %>
+          <%= link_to 'My Listings', listings_path, class:'mx-5' %>
+          <%= link_to my_requests_path, class:'mx-5' do %>
+             <%= 'Requests'  %>
+            <span class='badge bg-danger rounded'><%= notification %></span>
+          <% end %>
+        <% end %>
       <% else %>
         <div class="mx-auto">
       <%= link_to 'Home', root_path %>
@@ -26,7 +35,7 @@
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
           <li class="nav-item active">
-            <%= link_to raw('<i class="fa-solid fa-plus"></i> Become a Host'), new_flat_path, class: "btn btn-success mx-2" %>
+            <%= link_to raw('<i class="fa-solid fa-plus"></i> Become a Host'), new_flat_path, class: "btn btn-success" %>
           </li>
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
