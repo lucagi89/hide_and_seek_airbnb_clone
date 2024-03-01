@@ -1,12 +1,12 @@
 <div class="container mt-5">
-  <h1>Properties near <%= @query %> </h1>
-  <div class='my-4 w-50'>
-    <%= render "shared/search_bar" %>
-  </div>
 
   <div class="d-flex justify-content-between">
 
     <div class="list" style="width:600px;">
+        <h1>Properties in <%= @query %> </h1>
+        <div class='my-4'>
+          <%= render "shared/search_bar" %>
+        </div>
       <% if @message.present? %>
         <div class="container my-5 text-center" id="result">
           <h4><%= @message %></h4>
@@ -40,7 +40,7 @@
       <% end %>
     </div>
 
-    <div style="width: 50%; height: 800px;"
+    <div style="width: 50%; height: 800px; margin-top:75px;"
       data-controller="map"
       data-map-markers-value="<%= @markers.to_json %>"
       data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
