@@ -35,7 +35,7 @@ puts "Finished creating users!"
 puts "Creating flats..."
 
 Flat.new(
-  name: "AirShip with Breathtaking Highland Views",
+  name: "AirShip Highland Views",
   city: "Drimnin, United Kingdom",
   address: "1 bedroom - 1 bed - 1 bathroom",
   description: "Retreat to the deck of this sustainable getaway and gaze at the twinkling constellations under a cosy tartan blanket. AirShip 2 is an iconic, insulated aluminum pod designed by Roderick James with views of the Sound of Mull from dragonfly windows. Airship002 is comfortable, quirky and cool. It does not pretend to be a five star hotel. The reviews tell the story. If booked for the dates you want check out our new listing The Pilot House, Drimnin which is on the same 4 acra site.
@@ -52,7 +52,7 @@ Flat.new(
 ).save
 
 Flat.new(
-  name: "Moinho das Feteiras | The Mill",
+  name: "Moinho das Feteiras",
   city: "Ponta Delgada, Portugal",
   address: "1 bedroom - 1 bed - 1 bathroom",
   description: "Built in the 19th century, with a 360 degrees view over the sea and surroundings on the top floor.
@@ -74,7 +74,7 @@ Flat.new(
 ).save
 
 Flat.new(
-  name: "Bumble Barn at Great Field Farm",
+  name: "Bumble Barn",
   city: "Canterbury, United Kingdom",
   address: "3 bedrooms - 5 beds - 2 bathrooms",
   description: "Great Field Farm is set in 45 acres, including gardens, paddocks and the great field with different crops each year.
