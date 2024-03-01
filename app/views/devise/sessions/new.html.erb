@@ -15,12 +15,12 @@
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
 
-      <div class="form-actions">
+      <div class="form-actions d-flex justify-content-between flex-wrap">
         <%= f.button :submit, "Log in", class:"btn-login" %>
+        <%= render "devise/shared/links" %>
       </div>
   <% end %>
 
-    <%= render "devise/shared/links" %>
   </div>
   </div>
   </div>
