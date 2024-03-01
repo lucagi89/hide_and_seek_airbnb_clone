@@ -44,9 +44,9 @@ class BookingsController < ApplicationController
   #/bookings/:id
   def update
     if @booking.update(accepted: true)
-      redirect_to my_bookings_path, notice: "Booking was successfully approved."
+      redirect_to my_requests_path, notice: "Booking was successfully approved."
     else
-      redirect_to my_bookings_path, alert: "Failed to approve booking."
+      redirect_to my_requests_path, alert: "Failed to approve booking."
     end
   end
 
