@@ -1,10 +1,8 @@
-
 <%= form_with url: searches_path, method: :get, class: "d-flex" do %>
   <%= text_field_tag :query,
         params[:query],
         class: "form-control",
-        placeholder: "Enter a city or country...",
+        placeholder: "🔍 Enter a city or country...",
         class: "input"
     %>
-  <%= submit_tag "Search", class: "btn-search" %>
 <% end %>

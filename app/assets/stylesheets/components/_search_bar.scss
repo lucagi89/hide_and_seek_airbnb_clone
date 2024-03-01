@@ -1,15 +1,16 @@
 .input {
   border: none;
-  border-radius: 50px 0 0 50px;
+  border-radius: 50px;
   font-size: 14px;
   padding: 10px 20px;
   width: 800px;
   font-size: 20px;
   border: 2px solid white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.input:focus {
-  outline: none !important;
+.input:focus::placeholder {
+  color: transparent;
 }
 
 .btn-search {

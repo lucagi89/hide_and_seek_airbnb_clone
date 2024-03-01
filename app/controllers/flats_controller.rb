@@ -3,14 +3,19 @@ class FlatsController < ApplicationController
   before_action :set_flat, only: %i[show destroy]
 
   def home
-          @flats = Flat.all
+    @flats = Flat.all
       end
 
   def show
+    @flats = Flat.all
     @flat = Flat.find(params[:id])
     @user = current_user
     @booking = Booking.new
     @review = Review.new
+    @markers = [{
+      lat: @flat.latitude,
+      lng: @flat.longitude
+    }]
   end
 
   def new
