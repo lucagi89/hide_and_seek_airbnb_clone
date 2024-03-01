@@ -1,8 +1,7 @@
 .banner-host {
-  margin-top: 20px;
   height:100vh;
   width: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.jsdelivr.net/gh/i-have-no-buddies/the-tax-relief-expert-cdn@master/v2/mortgage/first-time/banner.png');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('https://cdn.jsdelivr.net/gh/i-have-no-buddies/the-tax-relief-expert-cdn@master/v2/mortgage/first-time/banner.png');
   background-size: cover;
   background-position: center;
 }
@@ -11,13 +10,13 @@
 .banner-host-text{
   display: flex;
   flex-direction: column;
-  gap: 20px;
   width: 40vw;
   color: rgb(0, 0, 0);
   background-color: rgba(255, 255, 255, 0.725);
   border-radius: 20px;
   margin-left: 100px;
   padding: 40px;
+  margin-bottom: 40px;
 
   h1{
     font-size: 72px;
@@ -27,8 +26,8 @@
 
   button {
     margin-top: 20px;
-    padding: 10px 20px;
-    border-radius: 10px;
+    padding: 10px 25px;
+    border-radius: 20px !important;
     background-color: $green;
     color: rgb(0, 0, 0);
     font-size: 20px;

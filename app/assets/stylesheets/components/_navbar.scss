@@ -11,6 +11,11 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+.navbar-sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
 
 .avatar {
   height: 38px;
@@ -37,9 +42,6 @@
   background-color: $green;
 }
 
-
-
-
 .btn-outline-success:hover {
   background-color: $green;
 
@@ -50,7 +52,7 @@
 }
 
 .btn-nav {
-border-radius: 10px;
+border-radius: 20px;
 }
 
 .nav-links a {
