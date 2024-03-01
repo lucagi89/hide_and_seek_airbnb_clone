@@ -23,6 +23,10 @@
           <div class="d-flex justify-content-center align-items-center mb-3" style="width:100%; ">
             <p style="color:green; font-weight: 600; font-size:25px;">Booking Approved</p>
           </div>
+        <% elsif request.cancelled %>
+          <div class="d-flex justify-content-center align-items-center mb-3" style="width:100%; ">
+            <p style="color:red; font-weight: 600; font-size:25px;">Booking Denied</p>
+          </div>
         <% else %>
           <div class="d-flex justify-content-around align-items-center mb-3" style="width:100%; ">
             <form action="/bookings/<%=request.id%>" method="patch" data-turbo-form>
@@ -30,7 +34,11 @@
               <input type="submit" value="Approve" class="btn btn-success" style="width: 140px;">
             </form>
             <p> or </p>
-            <%= link_to "Deny", booking_path(request), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"btn btn-danger", style:"width: 140px; color: white;"%>
+            <%# <%= link_to "Deny", booking_path(request), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class:"btn btn-danger", style:"width: 140px; color: white;"%>
+            <form action="/bookings/<%=request.id%>" method="patch" data-turbo-form>
+              <input type="hidden" name="request[cancelled]" value="true">
+              <input type="submit" value="Deny" class="btn btn-danger" style="width: 140px;">
+            </form>
           </div>
         <% end %>
       </div>

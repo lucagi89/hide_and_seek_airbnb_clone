@@ -12,16 +12,29 @@
       <p class="d-flex justify-content-between"><span>Arrival:</span><span><%= booking.start_date %></span></p>
       <p class="d-flex justify-content-between"><span>Departure:</span><span><%= booking.end_date %></span></p>
     </div>
+
     <% if booking.paid %>
+
       <div class="d-flex justify-content-center align-items-center mb-3" style="width: 100%;">
-        <p style="color: green; font-weight: 600; font-size: 25px;">Booking Paid</p>
+        <p style="color: green; font-weight: 600; font-size: 25px;">Paid</p>
       </div>
+
     <% elsif booking.accepted %>
+
       <%= render "booking_accepted", booking: booking %>
-    <% else %>
+
+    <% elsif booking.cancelled %>
+
       <div class="d-flex justify-content-center align-items-center mb-3" style="width: 100%;">
-        <p style="color: orange; font-weight: 600; font-size: 25px;">Booking Pending</p>
+        <p style="color: red; font-weight: 600; font-size: 25px;">Not Accepted</p>
       </div>
+
+    <% else %>
+
+      <div class="d-flex justify-content-center align-items-center mb-3" style="width: 100%;">
+        <p style="color: orange; font-weight: 600; font-size: 25px;">Pending</p>
+      </div>
+
     <% end %>
   </div>
 </div>

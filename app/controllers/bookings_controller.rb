@@ -43,12 +43,20 @@ class BookingsController < ApplicationController
 
   #/bookings/:id
   def update
-    if @booking.update(accepted: true)
+    @booking = Booking.update(booking_params)
+    @booking.save
+
+    if @booking.paid
+      redirect_to my_bookings_path, notice: "Booking was successfully paid."
+    elsif @booking.accepted
       redirect_to my_requests_path, notice: "Booking was successfully approved."
+    elsif @booking.cancelled
+      redirect_to my_requests_path, notice: "Booking was successfully cancelled."
     else
-      redirect_to my_requests_path, alert: "Failed to approve booking."
+      redirect_to my_requests_path, alert: "Error. Booking was not updated."
     end
   end
+
 
   #/bookings/:id
   def destroy
@@ -63,6 +71,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :accepted, :flat_id, :user_id)
+    params.require(:booking).permit(:start_date, :end_date, :accepted, :paid, :cancelled, :flat_id, :user_id)
   end
 end
