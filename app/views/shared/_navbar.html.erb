@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top" style="background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px);">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-sticky-top w-100" style="background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px);">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <i class="fas fa-tree-city"></i>
@@ -22,7 +22,7 @@
         <% end %>
       <% else %>
         <div class="mx-auto">
-      <%= link_to 'Home', root_path %>
+      <%= link_to 'Explore', root_path %>
     </div>
       <% end %>
     </div>
@@ -46,7 +46,7 @@
               <%= link_to raw('<i class="fa-solid fa-star"></i> Favourites'), "#", class: "dropdown-item" %>
               <%= link_to raw('<i class="fa-solid fa-gear"></i> Settings'), "#", class: "dropdown-item" %>
               <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
-                <i class="fa-solid fa-right-from-bracket"></i> Log Out
+                <i class="fa-solid fa-right-from-bracket"></i> Log Out (<%= current_user.email  %>)
               <% end %>
             </div>
           </li>
@@ -59,7 +59,3 @@
     </div>
   </div>
 </div>
-
-<script>
-  document.href = window..href;
-</script>

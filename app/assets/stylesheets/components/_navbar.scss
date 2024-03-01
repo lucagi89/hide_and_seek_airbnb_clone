@@ -11,6 +11,11 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+.navbar-sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
 
 .avatar {
   height: 38px;
