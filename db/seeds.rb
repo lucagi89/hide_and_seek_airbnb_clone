@@ -254,7 +254,7 @@ Flat.new(
   It can be rented for 2 or 4 people (if rented only for 2 closes one room, (to be chosen).",
   price_per_night: 81,
   number_of_guests: 4,
-  photo_url: "https://a0.muscache.com/im/pictures/miso/Hosting-1014594753680515946/original/8e78a57a-341e-4ec8-b5d1-80aa3e13749a.jpeg?im_w=720s",
+  photo_url: "https://a0.muscache.com/im/pictures/miso/Hosting-1014594753680515946/original/8e78a57a-341e-4ec8-b5d1-80aa3e13749a.jpeg?im_w=720",
   user_id: admin.id
 ).save
 
