@@ -13,16 +13,11 @@
       <div>
         <h3 class=" mt-3 text-center"><%= request.flat.name %></h3>
         <div class="mt-1 mb-2 px-3">
-<<<<<<< HEAD
-          <p class="d-flex justify-content-between"><span>Arrival:</span><span><%= request.start_date %></span></p>
-          <p class="d-flex justify-content-between"><span>Departure:</span><span><%= request.end_date %></span></p>
           <% booking_user = request.user %>
-          <p class="d-flex justify-content-between"><span>From:</span><span><%= booking_user.email %></span></p>
-=======
+          <p class="d-flex justify-content-between"><span>From:</span><span><%= booking_user.name %></span></p>
           <p class="d-flex justify-content-between"><span>Arrival:</span><span><%= request.start_date.strftime("%d.%m.%Y") %></span></p>
           <p class="d-flex justify-content-between"><span>Departure:</span><span><%= request.end_date.strftime("%d.%m.%Y") %></span></p>
-          <p class="d-flex justify-content-between"><span>Number of guests:</span><span><%= request.flat.number_of_guests %> adutls</span></p>
->>>>>>> 82391fe2e3eeb31d15dac418a2c7513774c917c5
+          <p class="d-flex justify-content-between"><span>Number of guests:</span><span><%= request.flat.number_of_guests %> adults</span></p>
         </div>
         <% if request.accepted %>
           <div class="d-flex justify-content-center align-items-center mb-3" style="width:100%; ">
