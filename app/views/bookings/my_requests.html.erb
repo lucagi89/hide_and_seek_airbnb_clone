@@ -15,6 +15,8 @@
         <div class="mt-1 mb-2 px-3">
           <p class="d-flex justify-content-between"><span>Arrival:</span><span><%= request.start_date %></span></p>
           <p class="d-flex justify-content-between"><span>Departure:</span><span><%= request.end_date %></span></p>
+          <% booking_user = request.user %>
+          <p class="d-flex justify-content-between"><span>From:</span><span><%= booking_user.email %></span></p>
         </div>
         <% if request.accepted %>
         <div class="d-flex justify-content-center align-items-center mb-3" style="width:100%; ">
