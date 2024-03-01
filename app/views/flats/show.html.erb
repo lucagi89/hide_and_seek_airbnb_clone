@@ -78,6 +78,6 @@
                 <--- </div>
 
                 <div>
-                  <%= render "shared/reviews" %>
+                  <%= render "shared/reviews" if current_user.present? %>
                 </div>
 </div>
