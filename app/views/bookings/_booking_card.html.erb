@@ -12,7 +12,11 @@
       <p class="d-flex justify-content-between"><span>Arrival:</span><span><%= booking.start_date %></span></p>
       <p class="d-flex justify-content-between"><span>Departure:</span><span><%= booking.end_date %></span></p>
     </div>
-    <% if booking.accepted %>
+    <% if booking.paid %>
+      <div class="d-flex justify-content-center align-items-center mb-3" style="width: 100%;">
+        <p style="color: green; font-weight: 600; font-size: 25px;">Booking Paid</p>
+      </div>
+    <% elsif booking.accepted %>
       <%= render "booking_accepted", booking: booking %>
     <% else %>
       <div class="d-flex justify-content-center align-items-center mb-3" style="width: 100%;">
