@@ -203,5 +203,124 @@ Flat.new(
   user_id: admin.id
 ).save
 
+Flat.new(
+  name: "Autonomous podtel",
+  city: "Gorafe, Spain",
+  address: "1 bedroom - 1 bed - 1 bathroom",
+  description: "The world's first truly autonomous podtel.
+  Self-sustaining, eco-friendly, off-grid, completely APP powered and carbon neutral pod hotel set in idyllic naturescapes of our planet.
+
+  A sanctuary for travelers, social media fanatics, foodies, explorers and digital humans.
+
+  APP powered, from entrance, aroma, lighting, air-conditioning, In-Pod purchases, concierge and more.
+  Solar powered, Convert atmospheric humidity to water, and incinerate all waste!
+
+  The space
+  BREATHTAKING
+  A tranquil getaway in some of the most stunning locations on our planet where you can relax by listening to the song of mother nature. Districthive's Colony is a five star space for humans to recharge and connect with breathtaking nature in luxury without giving up comforts and technology.
+
+  AND NOW comes with a photo frame-outdoor shower, infinity anti-gravity pool and a star gazing lounge.
+
+  THE PODTEL
+  The Podtel, a tiny house Pod hotel we call the Colony is the world's first truly autonomous living space that can colonise any terrain. It requires no public services to function by making its own water, electricity and waste treatment. We can park in spaces where construction is not possible.",
+  price_per_night: 250,
+  number_of_guests: 4,
+  photo_url: "https://a0.muscache.com/im/pictures/miso/Hosting-44248856/original/2150fe87-cee5-47ec-a042-3e0abe54c2b1.jpeg?im_w=720",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "El Avistador. Montes de Toledo",
+  city: "Sonseca, Spain",
+  address: "1 bedroom - 1 bed - 1 bathroom",
+  description: "In a unique enclave, in front of the Toledo Mountains, a few meters from the beginning of the mountain range. By taking a picture, as if a photography frame were being treated, we developed a new and different architecture. A full wooden dome, with a huge window, unique acoustics. They will make your stay in our dome a different and comfortable experience.
+  The space
+  30,000 m2 of oaks, pitchers, pine trees, trimmings, cantueso, and native flora, taken care of with care, while still having the essence of low mountain. We have never wanted to lose its aroma and natural essence, such as the beginning of the Toledo Mountains. An ideal place to rest and disconnect, a secluded estate, but 75 minutes from Madrid, 25 minutes from Toledo. To get to it we must enjoy a forest track about 10 minutes by car, dirt, it is kept in good condition.
+  The dome is fully integrated without wanting to break the low mountain aesthetic, it is built as if a huge window were treated, since the views from the dome are undoubtedly the best we can offer.
+  Living room-kitchen of 30 m2 overlooking the estate and Montes de Toledo. Living-dining room with sofa bed. Solid Wooden Dining Table Biomass stove fireplace. ",
+  price_per_night: 102,
+  number_of_guests: 2,
+  photo_url: "https://a0.muscache.com/im/pictures/94210218-40be-445c-9008-e3749c18cf8b.jpg?im_w=720",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "Miralvalle Countryside Sheet",
+  city: "El Gastor, Spain",
+  address: "2 bedrooms - 3 beds - 1 bathroom",
+  description: "Cabin with porch in front of the house, table and chairs, 2 bedrooms, 2 bedrooms, bed 150cm and another with 2 beds 90cm, bathroom with shower, living room-kitchen, air conditioner and pellet fireplace.
+  Solar-powered home.
+  Outdoor area with private pool of 7 x 4 meters, depth min. 1 m. and max. 1.80 meters, chill out and reading area and right there also the safe barbecue area for summer.
+  It can be rented for 2 or 4 people (if rented only for 2 closes one room, (to be chosen).",
+  price_per_night: 81,
+  number_of_guests: 4,
+  photo_url: "https://a0.muscache.com/im/pictures/miso/Hosting-1014594753680515946/original/8e78a57a-341e-4ec8-b5d1-80aa3e13749a.jpeg?im_w=720s",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "Otto-Cueva Flor de Loto Cuejo",
+  city: "Río de Baza, Spain",
+  address: "1 bedroom - 3 beds - 1 bathroom",
+  description: "Cabin with porch in front of the house, table and chairs, 2 bedrooms, 2 bedrooms, bed 150cm and another with 2 beds 90cm, bathroom with shower, living room-kitchen, air conditioner and pellet fireplace.
+  Solar-powered home.
+  Outdoor area with private pool of 7 x 4 meters, depth min. 1 m. and max. 1.80 meters, chill out and reading area and right there also the safe barbecue area for summer.
+  It can be rented for 2 or 4 people (if rented only for 2 closes one room, (to be chosen).",
+  price_per_night: 138,
+  number_of_guests: 6,
+  photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-676121051490697524/original/1d584e08-00d1-44df-aad6-bc69a940d3ef.jpeg?im_w=720",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "Floating house/ Houseboat",
+  city: "Baurech, France",
+  address: "1 bedroom - 1 bed - 1 bathroom",
+  description: "Unusual accommodation 20km from Bordeaux, ideal for a stay for a couple, family or friends.
+  This floating house with terrace located on Lake Baurech, in the heart of nature, will seduce you with its view, its calm and its comfort.
+  Unique stay, timeless guaranteed!
+  The space
+  This atypical house is equipped with a kitchen with a high table, a small living room with 2 sofas, a coffee table and a desk, a bathroom, a bedroom with a king size bed and a terrace with table and chair.",
+  price_per_night: 149,
+  number_of_guests: 3,
+  photo_url: "https://a0.muscache.com/im/pictures/prohost-api/Hosting-53028879/original/eee0d344-b5ce-4a4f-ad2d-16e5f61640fc.jpeg?im_w=720",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "Tipi Apache des monteaux",
+  city: "Vivy, France",
+  address: "1 bedroom - 2 beds - 1.5 bathrooms",
+  description: "Enjoy the sounds of nature when you stay in this unique place. Food and drink available on site. just next to a lake where you can go fishing , walking or running, cycling, play ground for kids plus picnic table and other activities available. another lake is right behind us where you can go do some bird watching in a middle of quite country side just a step away from the chateaux de la Loire, 20 min away from the zoo bio parc de doué la Fontaine, vineyard where you can have wine testing. ",
+  price_per_night: 81,
+  number_of_guests: 4,
+  photo_url: "https://a0.muscache.com/im/pictures/fae30069-fdce-46eb-954d-50a50a562e7e.jpg?im_w=720",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "Elisabeth Chalet",
+  city: "Combloux, France",
+  address: "3 bedrooms - 3 beds - 2 bathrooms",
+  description: "Enjoy the sounds of nature when you stay in this unique place. Food and drink available on site. just next to a lake where you can go fishing , walking or running, cycling, play ground for kids plus picnic table and other activities available. another lake is right behind us where you can go do some bird watching in a middle of quite country side just a step away from the chateaux de la Loire, 20 min away from the zoo bio parc de doué la Fontaine, vineyard where you can have wine testing. ",
+  price_per_night: 325,
+  number_of_guests: 6,
+  photo_url: "https://a0.muscache.com/im/pictures/miso/Hosting-1018794961698596584/original/3dd56e8f-ad3f-4802-9605-6ebe1a3edfe3.jpeg?im_w=720",
+  user_id: admin.id
+).save
+
+Flat.new(
+  name: "Château et son Parc ",
+  city: "Manou, France",
+  address: "13 bedrooms - 26 beds - 6 bathrooms",
+  description: "Enjoy the sounds of nature when you stay in this unique place. Food and drink available on site. just next to a lake where you can go fishing , walking or running, cycling, play ground for kids plus picnic table and other activities available. another lake is right behind us where you can go do some bird watching in a middle of quite country side just a step away from the chateaux de la Loire, 20 min away from the zoo bio parc de doué la Fontaine, vineyard where you can have wine testing. ",
+  price_per_night: 582,
+  number_of_guests: 16,
+  photo_url: "https://a0.muscache.com/im/pictures/miso/Hosting-30556721/original/dff54e74-05ed-47de-bb94-9cf801cf3a82.jpeg?im_w=720",
+  user_id: admin.id
+).save
+
+
+
 
 puts 'Finished creating flats!'
