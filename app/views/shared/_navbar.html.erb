@@ -8,7 +8,7 @@
     <!-- Centered Search Bar -->
     <div class="nav-links mx-auto d-flex">
       <% if user_signed_in? %>
-        <%= link_to 'Home', root_path, class:'mx-5' %>
+        <%= link_to 'Explore', root_path, class:'mx-5' %>
         <%= link_to 'Bookings', my_bookings_path, class:'mx-5' %>
         <% user_is_host = current_user.owned_flats.any? %>
         <% if user_is_host %>
