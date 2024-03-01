@@ -1,60 +1,6 @@
 
 <div class="m-5 d-flex flex-wrap gap-5">
   <% @bookings.each do |booking| %>
-
-    <div class=" col-lg-3 col-md-6 mb-5 cards d-flex flex-column justify-content-between shadow" style="border-radius:30px 30px 0 0;" data-controller="bookings">
-      <%= link_to flat_path(booking.flat) do %>
-          <% if booking.flat.photo_url.present? %>
-            <%= image_tag booking.flat.photo_url, class: "card-img-top" %>
-          <% elsif booking.flat.photos.present? %>
-            <%= cl_image_tag booking.flat.photos.last.key, crop: :fill, height: 200 %>
-          <% end %>
-      <% end %>
-      <div>
-        <h3 class=" mt-3 text-center"><%= booking.flat.name %></h3>
-        <div class="mt-1 mb-2 px-3">
-          <p class="d-flex justify-content-between"><span>Arrival:</span><span><%= booking.start_date %></span></p>
-          <p class="d-flex justify-content-between"><span>Departure:</span><span><%= booking.end_date %></span></p>
-        </div>
-        <% if booking.accepted %>
-          <div class="d-flex justify-content-around align-items-center mb-3" style="width:100%; ">
-            <p style="color:green; font-weight: 600; font-size:18px;">Booking Approved</p>
-            <button type="button" class="btn btn-primary text-white" data-bs-toggle="modal" data-bs-target="#payModal<%= booking.id %>">
-              Pay Now
-            </button>
-          <div class="modal fade" id="payModal<%= booking.id %>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Payment</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                  <p><%= booking.flat.name %></p>
-                  <% number_of_days = (booking.end_date - booking.start_date).to_i %>
-                  <p><%= number_of_days %> <% if number_of_days > 1 %>nights<% else %>night<% end %> at <%= booking.flat.price_per_night %>£ per night</p>
-                  <p>Total: <%= booking.flat.price_per_night * number_of_days %>£</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <%= link_to root_path , class: "btn btn-primary text-white", data: { toggle: "modal", target: "#payModal" } do %>
-                      Pay
-                    <% end %>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          </div>
-
-
-        <% else %>
-        <div class="d-flex justify-content-center align-items-center mb-3" style="width:100%; ">
-          <p style="color:orange; font-weight: 600; font-size:25px;">Booking Pending</p>
-        </div>
-        <% end %>
-      </div>
-  </div>
+    <%= render "booking_card", booking: booking %>
   <% end %>
-
-</div>
+  </div>
