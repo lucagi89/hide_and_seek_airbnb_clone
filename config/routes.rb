@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: %i[update destroy]
+  resources :listings
 end
