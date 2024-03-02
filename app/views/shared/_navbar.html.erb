@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top" style="background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px);">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-sticky-top" style="background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px);">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <i class="fas fa-tree-city"></i>
@@ -16,7 +16,7 @@
           <% notification = requests_number.positive? ? requests_number : "" %>
           <%= link_to 'My Listings', listings_path, class:'mx-5' %>
           <%= link_to my_requests_path, class:'mx-5' do %>
-             <%= 'Requests'  %>
+            <%= 'Requests'  %>
             <span class='badge bg-danger rounded'><%= notification %></span>
           <% end %>
         <% end %>
