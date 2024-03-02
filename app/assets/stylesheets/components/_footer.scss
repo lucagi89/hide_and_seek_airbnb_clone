@@ -1,24 +1,77 @@
-
-
 .footer {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 100px;
-  padding: 0px 50px;
-  color: rgba(0,0,0,0.3);
+  height: auto;
+  padding: 20px;
+  background-color: #f0f0f0; /* Subtle gray background color */
+  border-top: 2px solid #ccc; /* Optional: Add a top border for separation */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
 }
+
+.footer-brand {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
 .footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start; /* Align links to the far left */
+}
+
+.footer-links a {
+  color: #333; /* Adjust text color to your preference */
+  text-decoration: none;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+  opacity: 0.7;
+}
+
+.footer-subscribe {
+  margin-top: 1rem;
+  text-align: right; /* Align subscribe form to the far right */
+}
+
+.subscribe-form {
   display: flex;
   align-items: center;
 }
-.footer-links a {
-  color: black;
-  opacity: 0.15;
-  text-decoration: none;
-  font-size: 24px;
-  padding: 0px 10px;
+
+.subscribe-form input {
+  padding: 8px;
+  margin-right: 8px;
+  border: 1px solid #ccc; /* Optional: Add border to the input */
+  border-radius: 5px; /* Optional: Add border-radius for a modern look */
 }
-.footer-links a:hover {
-  opacity: 1;
+
+.subscribe-form button {
+  padding: 8px 16px;
+  background-color: #333; /* Button background color */
+  color: #fff; /* Button text color */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.subscribe-form button:hover {
+  background-color: #555; /* Adjust button hover color */
+}
+
+.dark-strip {
+  background-color: #333; /* Color for the dark strip at the bottom */
+  color: #fff; /* Text color for the dark strip */
+  text-align: center;
+  padding: 10px;
+  margin-top: 20px; /* Optional: Add space between the content and the dark strip */
+}
+
+.dark-strip p {
+  margin: 0; /* Remove default margin for the paragraph */
 }

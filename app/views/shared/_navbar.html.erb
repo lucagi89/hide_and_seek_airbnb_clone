@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-sticky-top w-100" style="background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px);">
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon navbar-sticky-top" style="background-color: rgba(255, 255, 255, 0.8); backdrop-filter: blur(8px);">
   <div class="container-fluid">
     <%= link_to root_path, class: "navbar-brand" do %>
       <i class="fas fa-tree-city"></i>
@@ -12,7 +12,7 @@
         <%= link_to 'Bookings', my_bookings_path, class:'mx-5' %>
         <% user_is_host = current_user.owned_flats.any? %>
         <% if user_is_host %>
-          <% requests_number  = Booking.joins(:flat).where(accepted: false).where(flats: { user_id: current_user.id }).count %>
+          <% requests_number  = Booking.joins(:flat).where(accepted: false, cancelled: false).where(flats: { user_id: current_user.id }).count %>
           <% notification = requests_number.positive? ? requests_number : "" %>
           <%= link_to 'My Listings', listings_path, class:'mx-5' %>
           <%= link_to my_requests_path, class:'mx-5' do %>
@@ -34,19 +34,24 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="mt-1">
+          <li class="nav-item active">
             <%= link_to raw('<i class="fa-solid fa-plus"></i> Become a Host'), new_flat_path, class: "btn btn-success" %>
           </li>
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="<%= asset_path('profile_pic.png') %>" class="avatar mx-2" alt="dropdown menu">
+              <% if current_user.email == "vincent@vincent.com" %>
+                <% image_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1697808207/fococnbp64dtyybgvzec.jpg" %>
+              <% else %>
+                <% image_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1705006005/vzzyayojrtu8cxenstzi.jpg" %>
+              <% end %>
+              <img src=<%= image_url%> class="avatar mx-2" alt="dropdown menu">
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to raw('<i class="fa-solid fa-user"></i> Profile'), "#", class: "dropdown-item" %>
               <%= link_to raw('<i class="fa-solid fa-star"></i> Favourites'), "#", class: "dropdown-item" %>
               <%= link_to raw('<i class="fa-solid fa-gear"></i> Settings'), "#", class: "dropdown-item" %>
               <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
-                <i class="fa-solid fa-right-from-bracket"></i> Log Out <br> ( <%= current_user.email %> )
+                <i class="fa-solid fa-right-from-bracket"></i> Log Out
               <% end %>
             </div>
           </li>
