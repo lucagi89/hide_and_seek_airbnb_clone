@@ -30,10 +30,14 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.flat = @flat
     @booking.user = @user
-    if @booking.save
-      redirect_to my_bookings_path, notice: "Booking was successfully created."
+    if @user == @flat.user
+      render 'flats/show', alert: 'You cannot book your own flat.'
     else
-      render :new, status: :unprocessable_entity
+      if @booking.save
+        redirect_to my_bookings_path, notice: "Booking was successfully created."
+      else
+        render 'flats/show', alert: 'Error. Booking was not created.'
+      end
     end
   end
 
