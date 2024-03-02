@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:update, :destroy]
+  before_action :set_booking, only: %i[update destroy]
 
-  # /bookings
   def index
     @flat = Flat.find(params[:flat_id])
     @user = User.find(params[:user_id])
@@ -10,7 +9,6 @@ class BookingsController < ApplicationController
     @user_bookings = Booking.where(user_id: @user.id)
   end
 
-  # /my_bookings
   def my_requests
     @user = User.find(current_user.id)
     @own_flats = @user.owned_flats
@@ -22,12 +20,10 @@ class BookingsController < ApplicationController
     @bookings = Booking.where(user_id: @user.id)
   end
 
-  #/bookings/new
   def new
     @booking = Booking.new
   end
 
-  #/bookings
   def create
     @flat = Flat.find(params[:flat_id])
     @user = current_user
@@ -41,24 +37,20 @@ class BookingsController < ApplicationController
     end
   end
 
-  #/bookings/:id
   def update
-    @booking = Booking.update(booking_params)
-    @booking.save
-
-    if @booking.paid
+    raise
+    @booking.update(booking_params)
+    if @booking.paid == true
       redirect_to my_bookings_path, notice: "Booking was successfully paid."
-    elsif @booking.accepted
+    elsif @booking.accepted == true
       redirect_to my_requests_path, notice: "Booking was successfully approved."
-    elsif @booking.cancelled
+    elsif @booking.cancelled == true
       redirect_to my_requests_path, notice: "Booking was successfully cancelled."
     else
       redirect_to my_requests_path, alert: "Error. Booking was not updated."
     end
   end
 
-
-  #/bookings/:id
   def destroy
     @booking.destroy
     redirect_to my_bookings_path
