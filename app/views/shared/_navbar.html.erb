@@ -39,7 +39,12 @@
           </li>
           <li class="nav-item dropdown">
             <a href="#" class="avatar" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <img src="<%= asset_path('profile_pic.png') %>" class="avatar mx-2" alt="dropdown menu">
+              <% if current_user.email == "vincent@vincent.com" %>
+                <% image_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1697808207/fococnbp64dtyybgvzec.jpg" %>
+              <% else %>
+                <% image_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1705006005/vzzyayojrtu8cxenstzi.jpg" %>
+              <% end %>
+              <img src=<%= image_url%> class="avatar mx-2" alt="dropdown menu">
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                   <span class="dropdown-item" style="pointer-events: none;">
