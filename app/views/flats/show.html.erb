@@ -1,19 +1,20 @@
-<div class="container mt-2">
+<div class="container mt-5">
     <div class="container-image-map d-flex">
         <%# <div id="carouselExampleControls" class="carousel slide d-flex justify-content-between" data-ride="carousel"> %>
-          <div class="image w-100 m-2">
+          <div class="image w-100 m-4">
             <% if @flat.photo_url.present? %>
-              <%= image_tag @flat.photo_url, height:500, crop: :fill, class: "card-img-top" %>
+              <%= image_tag @flat.photo_url, height:400, crop: :fill, class: "card-img-top" %>
             <% else %>
               <img src="<%= @flat.photos.last.url %>" class="w-100" alt="Flat image">
             <% end %>
           </div>
-          <div class="mt-2" style="width: 90%; height: 500px;"
+          <div class="mt-4" style="width: 100%; height: 400px;"
               id ="map"
               data-controller="map"
               data-map-markers-value="<%= @markers.to_json %>"
               data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
           </div>
+
         <%# </div> %>
     </div>
 
@@ -21,43 +22,38 @@
         <div class="container-descr">
             <div class="info m-2 p-2">
                 <h2 class="caraousel-name"><%= @flat.name %></h2>
-                <p class="caraousel-text">Maximum of guests: <%= @flat.number_of_guests %></p>
-                <p class="caraousel-text">Location:<%= @flat.city%></p>
+                <p class="caraousel-text">Number of guests: <%= @flat.number_of_guests %></p>
+                <p class="caraousel-text">Location:<%= @flat.address%></p>
             </div>
 
-                <div class="info m-2 p-2">
-                  <h3>About this property</h3>
-                    <div id="descriptionCollapse">
-                      <p>
-                      <%= @flat.description.truncate(200) %>
-                <% if @flat.description.length > 200 %>
-                    <span id="dots">...</span>
-                    <span id="more" style="display: none;">
+            <div class="info m-2 p-2" data-controller="description">
+                <h3>About this property</h3>
+                <div id="descriptionCollapse">
+                  <p>
+                    <%= @flat.description.truncate(200) %>
+                    <% if @flat.description.length > 200 %>
+                      <span data-target="description.dots">...</span>
+                      <span data-target="description.more" style="display: none;">
                         <%= @flat.description.slice(200..-1) %>
-                    </span>
-                    <button onclick="toggleDescription()" id="readMoreBtn" class="btn btn-link" style="text-decoration: none;">See more</button>
-                <% end %>
-            </p>
-          </div>
-        </div>
-              <script>
-                  function toggleDescription() {
-                      var dots = document.getElementById("dots");
-                      var moreText = document.getElementById("more");
-                      var btnText = document.getElementById("readMoreBtn");
-
-            <div class="info m-3 p-2 d-flex justify-content-between">
+                      </span>
+                      <button data-action="click->description#toggle" data-target="description.readMoreBtn" class="btn btn-link" style="text-decoration: none;">See more</button>
+                    <% end %>
+                  </p>
+                </div>
+              </div>
+<%#
+            <div class="info m-2 p-2 d-flex justify-content-between">
                 <h4>About the host</h4>
               <% if @flat.user.email == "vincent@vincent.com" %>
-                <% image_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1697808207/fococnbp64dtyybgvzec.jpg" %>
-              <% else %>
-                <% image_url = "https://kitt.lewagon.com/placeholder/users/cveneziani" %>
-              <% end %>
-                <img class="avatar" alt="avatar" src=<%= image_url %> />
-            </div>
+                <%# <% image_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1697808207/fococnbp64dtyybgvzec.jpg" %>
+              <%# <% else %>
+                <%# <% image_url = "https://kitt.lewagon.com/placeholder/users/cveneziani" %>
+              <%# <% end %>
+                <%# <img class="avatar" alt="avatar" src=<%= image_url %>
+            <%# </div> %>
 
               <div class="info m-2 p-2 d-flex justify-content-between">
-                  <%= render "shared/reviews" %>
+                  <%= render "shared/reviews" if current_user.present? %>
                 </div>
 
             <div class="info m-2 p-2 d-flex justify-content-between">
@@ -65,38 +61,34 @@
               <a class="btn btn-flat w-10 m-2" href="mailto:host@example.com">Contact host</a>
             </div>
 
+            <%# <div class="info m-3 p-2 d-flex justify-content-between">
+              <%= render "shared/reviews" %>
+            <%# </div> %>
         </div>
 
-        <div class="container-booking mt-2">
-            <div class=" p-4 my-3 sticky-top" style="max-height: 500px; max-width: 300px; padding-top: 20px;">
-                  <h4 class="underline-price">£<%= @flat.price_per_night.round() %><span style="font-size: 12px;"> per night</span></h4>
+        <div class="container-booking mt-3">
+            <div class=" p-4 my-3 sticky-top">
+                  <h4 class="carousel-text">£<%= @flat.price_per_night.round() %><span style="font-size: 12px;"> per night</span></h4>
                   <%= form_with(model: [@flat, @booking]) do |f| %>
 
-          <div class="mb-2">
-            <%= f.label :start_date, "CHECKIN", class: "form-label" %>
+          <div class="mb-3">
+            <%= f.label :start_date, "Start Date", class: "form-label" %>
             <%= f.date_field :start_date, class: "form-control", placeholder: "Select start date", data: { controller: "datepicker" } %>
           </div>
 
-          <div class="mb-2">
+          <div class="mb-3">
             <%= f.label :end_date, "CHECKOUT", class: "form-label" %>
             <%= f.date_field :end_date, class: "form-control", placeholder: "Select end date", data: { controller: "datepicker" } %>
           </div>
 
-          <div class="mb-2">
+          <div class="mb-3">
           <%= f.label :number_of_guests, "GUESTS", class: "form-label" %>
           <%= f.select :number_of_guests, (1..10), { prompt: "Select number of guests" }, class: "form-control" %>
         </div>
+
           <%= f.submit "Reserve", class: "btn btn-primary w-100 btn-rounded mt-2" %>
         <% end %>
+
             </div>
         </div>
-    </div>
-                <%# <div class="bottom-buttons"> --->
-                  <%= link_to '<i class="btn btn-outline-danger"> Delete </i>'.html_safe, flat_path(@flat), class: "delete-btn position-fixed-bottom", method: :delete, data: { controller: "sweetalert", action: 'click -> sweetalert#deleteAlert' } %>
-                  <%# <%= link_to '<i class="btn btn-outline-success"> Edit </i>'.html_safe, flat_path(@flat), class: "edit-btn position-fixed-bottom", method: :delete, data: { controller: "sweetalert", action: 'click -> sweetalert#deleteAlert' } %>
-                <%# <--- </div> %>
-
-                <div>
-                  <%= render "shared/reviews" if current_user.present? %>
-                </div>
 </div>

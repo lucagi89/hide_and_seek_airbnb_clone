@@ -22,6 +22,14 @@
   margin-bottom: 10px; /* Bottom margin for paragraphs */
 }
 
+.avatar {
+  width: 50px; /* Avatar image width */
+  height: 50px; /* Avatar image height */
+  border-radius: 50%; /* Rounded avatar */
+  object-fit: cover; /* Cover image */
+  margin-left: 10px; /* Left margin */
+}
+
 .btn-flat {
   background-color: transparent; /* Transparent background */
   border: 1px solid #007bff; /* Button border color */
@@ -36,11 +44,11 @@
   background-color: #007bff; /* Darker background color on hover */
   color: #fff; /* Button text color on hover */
 }
-//
+
+
 .info{
-  width: 63vw;
+  width: 60vw;
 }
-//
 .btn-flat {
   color: #4A4A4A;
   border: 1px solid #4A4A4A;
@@ -56,58 +64,41 @@
 }
 
 .container-booking {
-  background-color: #fff;
-  border: 1px solid #03060900;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 20px; /* Increase padding for better spacing */
-  margin-bottom: 20px;
-  width: 350px;
-  position: sticky;
-  top: 90px; /* Adjust top position as needed */
-  max-height: 500px; /* Set a maximum height for the container */
+  background-color: #fff; /* White background color */
+  border: 1px solid #03060900; /* Border color */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
+  padding: 3px; /* Padding */
+  margin-bottom: 20px; /* Bottom margin */
+}
+.container-booking h4 {
+  color: #000000; /* Heading text color */
+  margin-bottom: 20px; /* Bottom margin for heading */
 }
 
-.container-booking h4 {
-  color: #000000;
-  margin-bottom: 20px;
-}
 
 .form-label {
-  font-weight: bold;
+  font-weight: bold; /* Bold label text */
 }
-
 .form-control {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
+  width: 100%; /* Full width input */
+  padding: 10px; /* Padding */
+  margin-bottom: 15px; /* Bottom margin */
+  border: 1px solid #ced4da; /* Border color */
+  border-radius: 4px; /* Rounded corners */
 }
-
 .btn-primary {
-  background-color: $green;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  background-color: $green; /* Primary button color */
+  color: #fff; /* Button text color */
+  border: none; /* Remove button border */
+  padding: 10px 20px; /* Padding */
+  border-radius: 4px; /* Rounded corners */
+  cursor: pointer; /* Pointer cursor */
+  transition: background-color 0.3s; /* Smooth transition */
 }
-
 .btn-primary:hover {
-  background-color: #72aa36e7;
+  background-color: #72aa36e7;/* Darker primary button color on hover */
 }
-
-.underline-price {
-  border-bottom: 0.5px solid #625e5e43;
-/* Add bottom border to underline the price */
-}
-
 .btn-rounded {
   border-radius: 20px; /* Rounded button corners */
-}
-.btn-container {
-  max-width: 300px;
-  margin: auto;/* Adjust this width to match your form width */
 }
