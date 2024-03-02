@@ -1,0 +1,18 @@
+<div class="container mt-5" id="host-form" >
+  <h1>Edit -  <%= @flat.name %></h1>
+  <div class="d-flex justify-content-between mt-5">
+    <div class='host-form mt-4'>
+      <%= simple_form_for @flat do |f| %>
+        <%= f.input :name, label: "Name of your property" %>
+        <%= f.input :address, label: "Address" %>
+        <%= f.input :city, label: "City" %>
+        <%= f.input :description, label: "Description" %>
+        <%= f.input :number_of_guests, label: "Number of guests" %>
+        <%= f.input :price_per_night, label: "Price per night" %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
+        <%= f.submit "Save Changes", class:"btn-login mt-4" %>
+      <% end %>
+    </div>
+      <%= image_tag 'https://www.upcyclist.co.uk/wp-content/webpc-passthru.php?src=https://www.upcyclist.co.uk/wp-content/uploads/2021/04/Cabin-to-rent-in-Cornwall-1-683x1024.jpg&nocache=1', class:"img-form" %>
+  </div>
+</div>

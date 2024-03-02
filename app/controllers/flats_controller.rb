@@ -1,6 +1,6 @@
 class FlatsController < ApplicationController
-  skip_before_action :authenticate_user!, only: %i[home show]
-  before_action :set_flat, only: %i[show destroy]
+  skip_before_action :authenticate_user!, only: %i[home show destroy]
+  before_action :set_flat, only: %i[show edit update destroy]
 
   def home
     @flats = Flat.all
@@ -33,9 +33,20 @@ class FlatsController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @flat.update(flat_params)
+      redirect_to flat_path(@flat), notice: "Your property was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def destroy
     @flat.destroy
-    redirect_to root_path, status: :see_other, alert: "Your property has been deleted."
+    redirect_to listings_path, status: :see_other, alert: "Your property has been deleted."
   end
 
   private

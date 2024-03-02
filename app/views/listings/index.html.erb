@@ -2,7 +2,7 @@
   <h1 class="mt-5">Your listings</h1>
   <div class=" mt-4">
     <% @flats.each do |flat| %>
-      <div class="d-flex mb-4 border-bottom pb-2", style="width: 50%;">
+      <div class="d-flex mb-4 border-bottom pb-2", style="width: 70%;">
         <div>
           <%=link_to flat_path(flat) do  %>
             <% if flat.photo_url.present? %>
@@ -11,11 +11,13 @@
               <%= cl_image_tag flat.photos.last.key, crop: :fill, width: 400, height: 200 %>
           <% end %>
         </div>
-        <div class="mt-2 mx-2" style="margin-right: 10px;">
+        <div class="mt-2 mx-3">
           <p><strong><%= flat.name.capitalize %></strong></p>
           <h6><i class="fa-solid fa-location-dot"></i> <%= flat.city %> </h6>
           <p><strong>£<%= flat.price_per_night.round() %></strong> Per night</p>
           <p> ★ <%= rand(3..5) %>.0<em> ( <%= rand(5..25) %> Reviews )</em></p>
+          <%= link_to "Edit", edit_flat_path(flat), class: "btn btn-outline-primary rounded-2" %>
+          <%= link_to "Delete", flat_path(flat), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-outline-danger" %>
         </div>
         <% end %>
       </div>
