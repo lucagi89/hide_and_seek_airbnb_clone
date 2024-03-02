@@ -5,7 +5,7 @@
       <% if flat.photo_url.present? %>
         <%= image_tag flat.photo_url, class: "card-img-top", with: 500 %>
       <% elsif flat.photos.present? %>
-        <%= cl_image_tag flat.photos.last.key, crop: :fill, height: 200 %>
+        <%= cl_image_tag flat.photos.last.key, crop: :fit, height: 200 %>
       <% end %>
       <div class="mt-2 mx-2">
         <div class="d-flex justify-content-between">
