@@ -5,7 +5,7 @@
             <% if @flat.photo_url.present? %>
               <%= image_tag @flat.photo_url, height:400, crop: :fill, class: "card-img-top" %>
             <% else %>
-              <img src="<%= @flat.photos.last.url %>" class="w-100" alt="Flat image">
+              <img src="<%= @flat.photos.last.url %>" class="w-100" style="height:400px; object-fit:cover;" alt="Flat image">
             <% end %>
           </div>
           <div class="mt-4" style="width: 100%; height: 400px;"

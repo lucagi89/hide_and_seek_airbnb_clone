@@ -29,6 +29,12 @@ User.create!(
   password: "vincent"
 )
 
+User.create!(
+  name: "Luca",
+  email: "luca@luca.com",
+  password: "lucaluca"
+)
+
 
 puts "Finished creating users!"
 
