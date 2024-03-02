@@ -1,5 +1,5 @@
 
-<div class="banner-host d-flex align-items-center mt-5">
+<div class="banner-host d-flex align-items-center">
   <div class="banner-host-text">
     <h1>Become a host with Hide n Seek!</h1>
     <p>Unlock the potential of your space and embark on an exciting journey as a Hide n Seek host! Join our global community today and turn your property into unforgettable experiences for travelers worldwide.</p>
@@ -53,10 +53,9 @@
         <%= f.input :number_of_guests, label: "Number of guests" %>
         <%= f.input :price_per_night, label: "Price per night" %>
         <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-        <%= f.submit "List my property", class:"btn-login mt-4" %>
+        <%= f.submit "List my property", class:"btn-login mt-4", data: { controller: "sweetalert", action: 'click -> sweetalert#createAlert' } %>
       <% end %>
     </div>
       <%= image_tag 'https://www.upcyclist.co.uk/wp-content/webpc-passthru.php?src=https://www.upcyclist.co.uk/wp-content/uploads/2021/04/Cabin-to-rent-in-Cornwall-1-683x1024.jpg&nocache=1', class:"img-form" %>
-    </div>
   </div>
 </div>

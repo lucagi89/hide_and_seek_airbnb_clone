@@ -10,3 +10,4 @@ pin "@popperjs/core", to: "popper.js", preload: true
 pin "flatpickr", to: "https://ga.jspm.io/npm:flatpickr@4.6.13/dist/esm/index.js"
 pin "mapbox-gl" # @3.1.2
 pin "process" # @2.0.1
+pin "sweetalert2" # @11.10.5

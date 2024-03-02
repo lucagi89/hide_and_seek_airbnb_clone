@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
-  devise_for :users
+  # devise_for :users
+  devise_for :users, controllers: { registrations: "registrations" }
   root to: "flats#home"
 
   devise_scope :user do
+    get '/my_requests', to: 'bookings#my_requests', as: :my_requests
     get '/my_bookings', to: 'bookings#my_bookings', as: :my_bookings
   end
 
@@ -13,4 +15,5 @@ Rails.application.routes.draw do
   end
 
   resources :bookings, only: %i[update destroy]
+  resources :listings
 end

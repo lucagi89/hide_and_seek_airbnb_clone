@@ -1,4 +1,5 @@
 
+
 <% user_id = current_user.id %>
 <% flat_id = @flat.id %>
 <% booking = Booking.where(user_id: user_id, flat_id: flat_id) %>
@@ -30,7 +31,7 @@
         <%= link_to "Delete", flat_review_path(@flat, review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
         <% end %>
       </div>
-      
+
     <% end %>
 <% else %>
     <p>No reviews yet...book the place and enjoy the experience to leave a review!</p>

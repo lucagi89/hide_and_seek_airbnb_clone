@@ -4,13 +4,18 @@ class FlatsController < ApplicationController
 
   def home
     @flats = Flat.all
-      end
+  end
 
   def show
+    @flats = Flat.all
     @flat = Flat.find(params[:id])
     @user = current_user
     @booking = Booking.new
     @review = Review.new
+    @markers = [{
+      lat: @flat.latitude,
+      lng: @flat.longitude
+    }]
   end
 
   def new

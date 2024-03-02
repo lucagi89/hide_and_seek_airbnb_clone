@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: [:update, :destroy]
+  # before_action :set_booking, only: %i[update destroy]
 
-  # /bookings
   def index
     @flat = Flat.find(params[:flat_id])
     @user = User.find(params[:user_id])
@@ -10,24 +9,21 @@ class BookingsController < ApplicationController
     @user_bookings = Booking.where(user_id: @user.id)
   end
 
-  # /my_bookings
-  def my_bookings
-    # @user = current_user
+  def my_requests
     @user = User.find(current_user.id)
-    @bookings = @user.bookings
-    # @flat = Flat.find(params[:flat_id])
-    # respond_to do |format|
-    #   format.html { render :my_bookings, status: :ok }
-    #   format.json # <!-- make sure you have format.json, in addition to html
-    # end
+    @own_flats = @user.owned_flats
+    @requests  = Booking.joins(:flat).where(flats: { user_id: @user.id })
   end
 
-  #/bookings/new
+  def my_bookings
+    @user = User.find(current_user.id)
+    @bookings = Booking.where(user_id: @user.id)
+  end
+
   def new
     @booking = Booking.new
   end
 
-  #/bookings
   def create
     @flat = Flat.find(params[:flat_id])
     @user = current_user
@@ -41,17 +37,21 @@ class BookingsController < ApplicationController
     end
   end
 
-  #/bookings/:id
   def update
     @booking = Booking.find(params[:id])
-    if @booking.update(accepted: true)
-      redirect_to my_bookings_path, notice: "Booking was successfully approved."
+    @booking.update(booking_params)
+
+    if @booking.paid == true
+      redirect_to my_bookings_path, notice: "Booking was successfully paid."
+    elsif @booking.accepted == true
+      redirect_to my_requests_path, notice: "Booking was successfully approved."
+    elsif @booking.cancelled == true
+      redirect_to my_requests_path, notice: "Booking was successfully cancelled."
     else
-      redirect_to my_bookings_path, alert: "Failed to approve booking."
+      redirect_to my_requests_path, alert: "Error. Booking was not updated."
     end
   end
 
-  #/bookings/:id
   def destroy
     @booking.destroy
     redirect_to my_bookings_path
@@ -64,6 +64,6 @@ class BookingsController < ApplicationController
   end
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :accepted, :flat_id, :user_id)
+    params.require(:booking).permit(:start_date, :end_date, :accepted, :paid, :cancelled, :flat_id, :user_id)
   end
 end

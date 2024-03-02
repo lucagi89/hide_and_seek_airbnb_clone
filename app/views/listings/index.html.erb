@@ -1,0 +1,24 @@
+<div class="container mt-5">
+  <h1 class="mt-5">Your listings:</h1>
+  <div class="mt-4">
+    <% @flats.each do |flat| %>
+      <div class="cards d-flex justify-content-center">
+        <%=link_to flat_path(flat) do  %>
+          <% if flat.photo_url.present? %>
+            <%= image_tag flat.photo_url, class: "card-img-top" %>
+          <% elsif flat.photos.present? %>
+            <%= cl_image_tag flat.photos.last.key, crop: :fill, height: 200 %>
+          <% end %>
+          <div class="mt-2 mx-2">
+            <div class="d-flex justify-content-between">
+              <p><%= flat.name %></p>
+              <p> ★ <%= rand(3..5) %>.0</p>
+            </div>
+            <h6><i class="fa-solid fa-location-dot"></i> <%= flat.city %> </h6>
+            <p><strong>£<%= flat.price_per_night.round() %></strong> night</p>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
