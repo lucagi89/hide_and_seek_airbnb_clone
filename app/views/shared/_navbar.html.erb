@@ -42,12 +42,16 @@
               <img src="<%= asset_path('profile_pic.png') %>" class="avatar mx-2" alt="dropdown menu">
             </a>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to raw('<i class="fa-solid fa-user"></i> Profile'), "#", class: "dropdown-item" %>
-              <%= link_to raw('<i class="fa-solid fa-star"></i> Favourites'), "#", class: "dropdown-item" %>
-              <%= link_to raw('<i class="fa-solid fa-gear"></i> Settings'), "#", class: "dropdown-item" %>
-              <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
-                <i class="fa-solid fa-right-from-bracket"></i> Log Out
-              <% end %>
+                  <span class="dropdown-item" style="pointer-events: none;">
+                    <%= raw('<i class="fa-solid fa-landmark"></i>') %> <%= current_user.name.capitalize %>
+                  </span>
+              <div class="dropdown-divider"></div>
+                <%= link_to raw('<i class="fa-solid fa-user"></i> Profile'), "#", class: "dropdown-item" %>
+                <%= link_to raw('<i class="fa-solid fa-star"></i> Favourites'), "#", class: "dropdown-item" %>
+                <%= link_to raw('<i class="fa-solid fa-gear"></i> Settings'), "#", class: "dropdown-item" %>
+                  <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                    <i class="fa-solid fa-right-from-bracket"></i> Log Out
+                  <% end %>
             </div>
           </li>
         <% else %>
