@@ -4,45 +4,36 @@
 <% flat_id = @flat.id %>
 <% booking = Booking.where(user_id: user_id, flat_id: flat_id) %>
 
-<div class="container-reviews">
 <% if  booking.present? %>
   <h2>Write a Review</h2>
- <div>
   <%= simple_form_for([@flat, @review]) do |f| %>
   <%= f.input :title %>
   <%= f.input :rating %>
   <%= f.input :comment %>
   <%= f.submit %>
 <% end %>
-</div>
 <% end %>
 
-<div class='mt-2'>
-  <h4>Reviews:</h4>
-  <% if @flat.reviews.any? %>
-      <% last_review = @flat.reviews.last %>
-      <% @flat.reviews.each do |review| %>
-          <% border = review == last_review ? "" : "border-bottom" %>
-        <div class="review-item d-flex justify-content-between <%= 'border' unless review == last_review %>">
-          <div>
-          <h5><%= review.title %>       <%= ("⭐️" * review.rating) + "☆" * (5 - review.rating) %></h5>
-          <p></p>
-            <p> <%= review.comment %></p>
-          <span class="review-email">Created by: <%= review.user.email %><span>
-          </div>
-            <div class="delete-button mt-7 ml-10">
-        <% if review.user = current_user %>
-          <%= link_to "Delete", flat_review_path(@flat, review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
-          <% end %>
-          </div>
+<div class='mt-4'>
+<h4>Reviews:</h4>
+<% if @flat.reviews.any? %>
+    <% last_review = @flat.reviews.last %>
+    <% @flat.reviews.each do |review| %>
+        <% border = review == last_review ? "" : "border-bottom" %>
+      <div style="width:100%;" class="d-flex justify-content-between align-items-center <%= border %> mt-4 pb-4 px-2">
+        <div>
+        <h3><%= review.title %>       <%= ("⭐️" * review.rating) + "☆" * (5 - review.rating) %></h3>
+        <p></p>
+        <p><%= review.comment %></p>
+        <p style="font-size:10px;"><%= review.user.email %></p>
         </div>
+      <% if review.user = current_user %>
+        <%= link_to "Delete", flat_review_path(@flat, review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+        <% end %>
+      </div>
 
     <% end %>
-  <% else %>
-      <div class="no-reviews">
-        <p>No reviews yet!</p>
-        <p>Be the first to share your experience.</p>
-      </div>
+<% else %>
+    <p>No reviews yet...book the place and enjoy the experience to leave a review!</p>
 <% end %>
-</div>
 </div>
