@@ -20,24 +20,18 @@
 
     <div class="container-info d-flex justify-content-between">
         <div class="container-descr">
-            <div class="info m-2 p-2">
+            <div class="info m-2 p-4">
                 <h2 class="caraousel-name"><%= @flat.name %></h2>
-                <p class="caraousel-text">Number of guests: <%= @flat.number_of_guests %></p>
-                <p class="caraousel-text">Location:<%= @flat.address%></p>
+                <p class="caraousel-text"><%= @flat.number_of_guests %> Guests</p>
+                <p class="caraousel-text"><%= @flat.address%></p>
             </div>
 
-            <div class="info m-2 p-2" data-controller="description">
+            <div class="info m-2 p-4" data-controller="description">
                 <h3>About this property</h3>
                 <div id="descriptionCollapse">
                   <p>
-                    <%= @flat.description.truncate(200) %>
-                    <% if @flat.description.length > 200 %>
-                      <span data-target="description.dots">...</span>
-                      <span data-target="description.more" style="display: none;">
-                        <%= @flat.description.slice(200..-1) %>
-                      </span>
-                      <button data-action="click->description#toggle" data-target="description.readMoreBtn" class="btn btn-link" style="text-decoration: none;">See more</button>
-                    <% end %>
+                    <%= @flat.description %>
+
                   </p>
                 </div>
               </div>
@@ -51,44 +45,46 @@
               <%# <% end %>
                 <%# <img class="avatar" alt="avatar" src=<%= image_url %>
             <%# </div> %>
-
-              <div class="info m-2 p-2 d-flex justify-content-between">
+              <div class="info m-2 p-4 d-flex justify-content-between">
+                <h4>Contact host</h4>
+                <a class="btn btn-flat w-10 m-2" href="mailto:host@example.com">Contact host</a>
+              </div>
+              <div class="info m-2 p-4 d-flex justify-content-between">
                   <%= render "shared/reviews" if current_user.present? %>
                 </div>
 
-            <div class="info m-2 p-2 d-flex justify-content-between">
-              <h4>Contact host</h4>
-              <a class="btn btn-flat w-10 m-2" href="mailto:host@example.com">Contact host</a>
-            </div>
+
 
             <%# <div class="info m-3 p-2 d-flex justify-content-between">
               <%= render "shared/reviews" %>
             <%# </div> %>
         </div>
 
-        <div class="container-booking mt-3">
-            <div class=" p-4 my-3 sticky-top">
+        <div class="d-flex align-items-center justify-content-center container-booking mt-2" style="height:550px;">
+        <div>
+          <h3 class="px-5">Book Now</h3>
+            <div class="px-5 py-2 mb-3">
                   <h4 class="carousel-text">£<%= @flat.price_per_night.round() %><span style="font-size: 12px;"> per night</span></h4>
                   <%= form_with(model: [@flat, @booking]) do |f| %>
 
           <div class="mb-3">
-            <%= f.label :start_date, "Start Date", class: "form-label" %>
+            <%= f.label :start_date, "Check-in", class: "form-label" %>
             <%= f.date_field :start_date, class: "form-control", placeholder: "Select start date", data: { controller: "datepicker" } %>
           </div>
 
           <div class="mb-3">
-            <%= f.label :end_date, "CHECKOUT", class: "form-label" %>
+            <%= f.label :end_date, "Check-out", class: "form-label" %>
             <%= f.date_field :end_date, class: "form-control", placeholder: "Select end date", data: { controller: "datepicker" } %>
           </div>
 
           <div class="mb-3">
-          <%= f.label :number_of_guests, "GUESTS", class: "form-label" %>
+          <%= f.label :number_of_guests, "Guests", class: "form-label" %>
           <%= f.select :number_of_guests, (1..10), { prompt: "Select number of guests" }, class: "form-control" %>
         </div>
 
           <%= f.submit "Reserve", class: "btn btn-primary w-100 btn-rounded mt-2" %>
         <% end %>
-
+        </div>
             </div>
         </div>
 </div>
