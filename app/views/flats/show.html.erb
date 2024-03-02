@@ -20,40 +20,55 @@
 
     <div class="container-info d-flex justify-content-between">
         <div class="container-descr">
-            <div class="info m-3 p-2">
+            <div class="info m-2 p-2">
                 <h2 class="caraousel-name"><%= @flat.name %></h2>
                 <p class="caraousel-text">Number of guests: <%= @flat.number_of_guests %></p>
                 <p class="caraousel-text">Location:<%= @flat.address%></p>
             </div>
 
-            <div class="info m-3 p-2">
-                <h4>Rooms & beds</h4>
-            </div>
-
-            <div class="info m-3 p-2 d-flex justify-content-between">
+            <div class="info m-2 p-2" data-controller="description">
+                <h3>About this property</h3>
+                <div id="descriptionCollapse">
+                  <p>
+                    <%= @flat.description.truncate(200) %>
+                    <% if @flat.description.length > 200 %>
+                      <span data-target="description.dots">...</span>
+                      <span data-target="description.more" style="display: none;">
+                        <%= @flat.description.slice(200..-1) %>
+                      </span>
+                      <button data-action="click->description#toggle" data-target="description.readMoreBtn" class="btn btn-link" style="text-decoration: none;">See more</button>
+                    <% end %>
+                  </p>
+                </div>
+              </div>
+<%#
+            <div class="info m-2 p-2 d-flex justify-content-between">
                 <h4>About the host</h4>
               <% if @flat.user.email == "vincent@vincent.com" %>
-                <% image_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1697808207/fococnbp64dtyybgvzec.jpg" %>
-              <% else %>
-                <% image_url = "https://kitt.lewagon.com/placeholder/users/cveneziani" %>
-              <% end %>
-                <img class="avatar" alt="avatar" src=<%= image_url %> />
-            </div>
+                <%# <% image_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1697808207/fococnbp64dtyybgvzec.jpg" %>
+              <%# <% else %>
+                <%# <% image_url = "https://kitt.lewagon.com/placeholder/users/cveneziani" %>
+              <%# <% end %>
+                <%# <img class="avatar" alt="avatar" src=<%= image_url %>
+            <%# </div> %>
 
-            <div class="info m-3 p-2 d-flex justify-content-between">
-                <h4>Contact</h4>
-                <a class="btn btn-flat w-10 m-2" href="#">Contact host</a>
+              <div class="info m-2 p-2 d-flex justify-content-between">
+                  <%= render "shared/reviews" if current_user.present? %>
+                </div>
+
+            <div class="info m-2 p-2 d-flex justify-content-between">
+              <h4>Contact host</h4>
+              <a class="btn btn-flat w-10 m-2" href="mailto:host@example.com">Contact host</a>
             </div>
 
             <%# <div class="info m-3 p-2 d-flex justify-content-between">
               <%= render "shared/reviews" %>
             <%# </div> %>
-
         </div>
 
         <div class="container-booking mt-3">
             <div class=" p-4 my-3 sticky-top">
-                  <h4 class="caraousel-text">£<%= @flat.price_per_night.round() %><span style="font-size: 12px;"> per night</span></h4>
+                  <h4 class="carousel-text">£<%= @flat.price_per_night.round() %><span style="font-size: 12px;"> per night</span></h4>
                   <%= form_with(model: [@flat, @booking]) do |f| %>
 
           <div class="mb-3">
@@ -76,13 +91,4 @@
 
             </div>
         </div>
-    </div>
-                <div class="bottom-buttons"> --->
-                  <%= link_to '<i class="btn btn-outline-danger"> Delete </i>'.html_safe, flat_path(@flat), class: "delete-btn position-fixed-bottom", method: :delete, data: { controller: "sweetalert", action: 'click -> sweetalert#deleteAlert' } %>
-                  <%= link_to '<i class="btn btn-outline-success"> Edit </i>'.html_safe, flat_path(@flat), class: "edit-btn position-fixed-bottom", method: :delete, data: { controller: "sweetalert", action: 'click -> sweetalert#deleteAlert' } %>
-                <--- </div>
-
-                <div>
-                  <%= render "shared/reviews" if current_user.present? %>
-                </div>
 </div>
