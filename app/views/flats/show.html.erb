@@ -32,7 +32,12 @@
 
             <div class="info m-3 p-2 d-flex justify-content-between">
                 <h4>About the host</h4>
-                <img class="avatar" alt="avatar" src="https://kitt.lewagon.com/placeholder/users/cveneziani" />
+              <% if @flat.user.email == "vincent@vincent.com" %>
+                <% image_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1697808207/fococnbp64dtyybgvzec.jpg" %>
+              <% else %>
+                <% image_url = "https://kitt.lewagon.com/placeholder/users/cveneziani" %>
+              <% end %>
+                <img class="avatar" alt="avatar" src=<%= image_url %> />
             </div>
 
             <div class="info m-3 p-2 d-flex justify-content-between">
