@@ -12,7 +12,7 @@
         <%= link_to 'Bookings', my_bookings_path, class:'mx-5' %>
         <% user_is_host = current_user.owned_flats.any? %>
         <% if user_is_host %>
-          <% requests_number  = Booking.joins(:flat).where(accepted: false).where(flats: { user_id: current_user.id }).count %>
+          <% requests_number  = Booking.joins(:flat).where(accepted: false, cancelled: false).where(flats: { user_id: current_user.id }).count %>
           <% notification = requests_number.positive? ? requests_number : "" %>
           <%= link_to 'My Listings', listings_path, class:'mx-5' %>
           <%= link_to my_requests_path, class:'mx-5' do %>

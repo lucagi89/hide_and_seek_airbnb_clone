@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  before_action :set_booking, only: %i[update destroy]
+  # before_action :set_booking, only: %i[update destroy]
 
   def index
     @flat = Flat.find(params[:flat_id])
@@ -38,8 +38,9 @@ class BookingsController < ApplicationController
   end
 
   def update
-    raise
+    @booking = Booking.find(params[:id])
     @booking.update(booking_params)
+
     if @booking.paid == true
       redirect_to my_bookings_path, notice: "Booking was successfully paid."
     elsif @booking.accepted == true
