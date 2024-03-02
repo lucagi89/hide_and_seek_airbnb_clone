@@ -18,9 +18,13 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                  <%= link_to root_path , class: "btn btn-primary text-white", data: { toggle: "modal", target: "#payModal" } do %>
-                      Pay
-                    <% end %>
+                  <%# <%= link_to root_path , class: "btn btn-primary text-white", data: { toggle: "modal", target: "#payModal" } do %>
+                      <%# Pay %>
+                    <%# <% end %>
+                    <form action="/bookings/<%=booking.id%>" method="patch" data-turbo-form>
+                      <input type="hidden" name="booking[paid]" value="true">
+                      <input type="submit" value="Pay" class="btn btn-primary text-white">
+                    </form>
                 </div>
               </div>
             </div>
