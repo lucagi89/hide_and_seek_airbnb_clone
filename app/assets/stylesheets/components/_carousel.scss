@@ -69,7 +69,11 @@
   border-radius: 8px; /* Rounded corners */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow effect */
   padding: 3px; /* Padding */
-  margin-bottom: 20px; /* Bottom margin */
+  margin-bottom: 20px;
+  width: 300px; /* Set the initial width */
+  position: sticky; /* Fix its position */
+  top: 80px;
+  height: 500px; /* Adjust as needed based on your navbar height */
 }
 .container-booking h4 {
   color: #000000; /* Heading text color */
