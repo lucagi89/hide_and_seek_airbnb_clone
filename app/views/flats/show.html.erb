@@ -20,7 +20,7 @@
 
     <div class="container-info d-flex justify-content-between">
         <div class="container-descr">
-            <div class="info m-3 p-2">
+            <div class="info m-2 p-2">
                 <h2 class="caraousel-name"><%= @flat.name %></h2>
                 <p class="caraousel-text">Number of guests: <%= @flat.number_of_guests %></p>
                 <p class="caraousel-text">Location:<%= @flat.address%></p>
@@ -64,12 +64,11 @@
             <%# <div class="info m-3 p-2 d-flex justify-content-between">
               <%= render "shared/reviews" %>
             <%# </div> %>
-
         </div>
 
         <div class="container-booking mt-3">
             <div class=" p-4 my-3 sticky-top">
-                  <h4 class="caraousel-text">£<%= @flat.price_per_night.round() %><span style="font-size: 12px;"> per night</span></h4>
+                  <h4 class="carousel-text">£<%= @flat.price_per_night.round() %><span style="font-size: 12px;"> per night</span></h4>
                   <%= form_with(model: [@flat, @booking]) do |f| %>
 
           <div class="mb-3">
@@ -92,16 +91,4 @@
 
             </div>
         </div>
-<<<<<<< HEAD
-=======
-    </div>
-                <div class="bottom-buttons"> --->
-                  <%= link_to '<i class="btn btn-outline-danger"> Delete </i>'.html_safe, flat_path(@flat), class: "delete-btn position-fixed-bottom", method: :delete, data: { controller: "sweetalert", action: 'click -> sweetalert#deleteAlert' } %>
-                  <%= link_to '<i class="btn btn-outline-success"> Edit </i>'.html_safe, flat_path(@flat), class: "edit-btn position-fixed-bottom", method: :delete, data: { controller: "sweetalert", action: 'click -> sweetalert#deleteAlert' } %>
-                <--- </div>
-
-                <div>
-                  <%= render "shared/reviews" if current_user.present? %>
-                </div>
->>>>>>> d8a9379d725f7f7c9b9fa1faf7983235e7f923da
 </div>
