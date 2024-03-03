@@ -17,7 +17,7 @@
           <p class="d-flex justify-content-between"><span>From:</span><span><%= booking_user.name %></span></p>
           <p class="d-flex justify-content-between"><span>Arrival:</span><span><%= request.start_date.strftime("%d.%m.%Y") %></span></p>
           <p class="d-flex justify-content-between"><span>Departure:</span><span><%= request.end_date.strftime("%d.%m.%Y") %></span></p>
-          <p class="d-flex justify-content-between"><span>Number of guests:</span><span><%= request.flat.number_of_guests %> adults</span></p>
+          <p class="d-flex justify-content-between"><span>Number of guests:</span><span><%= request.number_of_guests %> adults</span></p>
         </div>
         <% if request.accepted %>
           <div class="d-flex justify-content-center align-items-center mb-3" style="width:100%; ">

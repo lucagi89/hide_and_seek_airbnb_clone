@@ -1,14 +1,14 @@
 <div class="container mt-5">
-    <div class="container-image-map d-flex">
+    <div class="container-image-map d-flex mb-2">
         <%# <div id="carouselExampleControls" class="carousel slide d-flex justify-content-between" data-ride="carousel"> %>
-          <div class="image w-100 m-4">
+          <div class="image w-100 m-2">
             <% if @flat.photo_url.present? %>
               <%= image_tag @flat.photo_url, height:400, crop: :fill, class: "card-img-top" %>
             <% else %>
               <img src="<%= @flat.photos.last.url %>" class="w-100" style="height:400px; object-fit:cover;" alt="Flat image">
             <% end %>
           </div>
-          <div class="mt-4" style="width: 100%; height: 400px;"
+          <div class="mt-2" style="width: 100%; height: 400px;"
               id ="map"
               data-controller="map"
               data-map-markers-value="<%= @markers.to_json %>"
@@ -18,8 +18,8 @@
         <%# </div> %>
     </div>
 
-    <div class="container-info d-flex justify-content-between">
-        <div class="container-descr">
+    <div class="container-info d-flex justify-content-center gap-3">
+        <div class="container-descr" style="width:75%">
             <div class="info m-2 p-4">
                 <h2 class="caraousel-name"><%= @flat.name %></h2>
                 <p class="caraousel-text"><%= @flat.number_of_guests %> Guests</p>
@@ -35,16 +35,7 @@
                   </p>
                 </div>
               </div>
-<%#
-            <div class="info m-2 p-2 d-flex justify-content-between">
-                <h4>About the host</h4>
-              <% if @flat.user.email == "vincent@vincent.com" %>
-                <%# <% image_url = "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1697808207/fococnbp64dtyybgvzec.jpg" %>
-              <%# <% else %>
-                <%# <% image_url = "https://kitt.lewagon.com/placeholder/users/cveneziani" %>
-              <%# <% end %>
-                <%# <img class="avatar" alt="avatar" src=<%= image_url %>
-            <%# </div> %>
+
               <div class="info m-2 p-4 d-flex justify-content-between">
                 <h4>Contact host</h4>
                 <a class="btn btn-flat w-10 m-2" href="mailto:host@example.com">Contact host</a>
@@ -54,11 +45,10 @@
                 </div>
 
 
-
-            <%# <div class="info m-3 p-2 d-flex justify-content-between">
-              <%= render "shared/reviews" %>
-            <%# </div> %>
         </div>
+
+        <% if @flat.user != current_user %>
+
 
         <div class="d-flex align-items-center justify-content-center container-booking mt-2" style="height:550px;">
         <div>
@@ -87,4 +77,5 @@
         </div>
             </div>
         </div>
+        <% end %>
 </div>

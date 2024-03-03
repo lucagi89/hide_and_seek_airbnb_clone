@@ -20,16 +20,16 @@
     <% last_review = @flat.reviews.last %>
     <% @flat.reviews.each do |review| %>
         <% border = review == last_review ? "" : "border-bottom" %>
-      <div style="width:100%;" class="d-flex justify-content-between <%= border %> mt-4 pb-4 px-2">
+      <div style="width:100%;" class="d-flex justify-content-between align-items-center <%= border %> mt-4 pb-4 px-2">
         <div>
         <h5><%= review.title %>       <%= ("⭐️" * review.rating) + "☆" * (5 - review.rating) %></h5>
         <p></p>
         <p><%= review.comment %></p>
         <p style="font-size:10px;"><%= review.user.email %></p>
         </div>
-      <%# <% if review.user = current_user %>
-        <%# <%= link_to "Delete", flat_review_path(@flat, review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
-        <%# <% end %>
+      <% if review.user = current_user %>
+        <%= link_to "Delete", flat_review_path(@flat, review), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}, class: "btn btn-danger" %>
+        <% end %>%
       </div>
 
     <% end %>
