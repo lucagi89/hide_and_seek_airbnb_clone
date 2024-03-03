@@ -3,8 +3,9 @@
 <% user_id = current_user.id %>
 <% flat_id = @flat.id %>
 <% booking = Booking.where(user_id: user_id, flat_id: flat_id) %>
+<% review = Review.where(booking_id: booking.ids) %>
 
-<% if  booking.present? %>
+<% if  booking.present? && review.blank? %>
   <h2>Write a Review</h2>
   <%= simple_form_for([@flat, @review]) do |f| %>
   <%= f.input :title %>
